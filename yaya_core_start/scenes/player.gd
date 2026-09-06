@@ -6,15 +6,20 @@ const JUMP_VELOCITY = -250.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast_collectible_right: RayCast2D = $AnimatedSprite2D/raycast_collectible_right
+@onready var raycast_collectible_left: RayCast2D = $AnimatedSprite2D/raycast_collectible_left
 
+var raycast_list = []
 
+func _ready():
+	raycast_list = [raycast_collectible_right, raycast_collectible_left]
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and  raycast_collectible_right.is_colliding():
-		var object = raycast_collectible_right.get_collider()
-		if object.is_in_group("collectible"):
-			object.collected()
-			print("items collected")
+	for r in raycast_list:
+		if Input.is_action_just_pressed("interact") and  r.is_colliding():
+			var object = r.get_collider()
+			if object.is_in_group("collectible"):
+				object.collected()
+				print("items collected")
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

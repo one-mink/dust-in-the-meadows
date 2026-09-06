@@ -185,6 +185,12 @@ scale = Vector2(4, 4)
 target_position = Vector2(6.75, 0)
 collide_with_areas = true
 
+[node name="raycast_collectible_left" type="RayCast2D" parent="AnimatedSprite2D" unique_id=537480095]
+position = Vector2(2, 5)
+scale = Vector2(4, 4)
+target_position = Vector2(-7, 0)
+collide_with_areas = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1704815300]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_hnoby")
