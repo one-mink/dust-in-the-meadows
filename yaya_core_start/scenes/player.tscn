@@ -179,6 +179,12 @@ sprite_frames = SubResource("SpriteFrames_hnoby")
 animation = &"run"
 autoplay = "idle"
 
+[node name="raycast_collectible_right" type="RayCast2D" parent="AnimatedSprite2D" unique_id=794780090]
+position = Vector2(-3, 5)
+scale = Vector2(4, 4)
+target_position = Vector2(6.75, 0)
+collide_with_areas = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1704815300]
-position = Vector2(0, 4)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_hnoby")

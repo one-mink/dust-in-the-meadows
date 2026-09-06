@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://j8bgshnvpn0t"]
+
+[ext_resource type="Script" uid="uid://ddl147qusd3qo" path="res://scenes/collectible.gd" id="1_1pg6c"]
+[ext_resource type="Texture2D" uid="uid://dirgxa534t0xf" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_bkg8t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnoby"]
+radius = 6.0
+height = 18.0
+
+[node name="collectible" type="Area2D" unique_id=453026304 groups=["collectible"]]
+script = ExtResource("1_1pg6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1021070948]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_hnoby")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=462337644]
+position = Vector2(0, -1)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_bkg8t")
+region_enabled = true
+region_rect = Rect2(3.7503834, 114.01729, 8.318779, 14.315842)
