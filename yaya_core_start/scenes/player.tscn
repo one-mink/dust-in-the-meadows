@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ovmccmpwmrc1" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b65p4xtjartgt" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Resource" uid="uid://djqe278odsy0j" path="res://inventory/playerInventory.tres" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -173,6 +174,7 @@ size = Vector2(7.5, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=2083495719]
 script = ExtResource("1_g2els")
+inv = ExtResource("2_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1665991903]
 sprite_frames = SubResource("SpriteFrames_hnoby")

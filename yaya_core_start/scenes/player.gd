@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -250.0
 
+@export var inv : Inv
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast_collectible_right: RayCast2D = $AnimatedSprite2D/raycast_collectible_right
 @onready var raycast_collectible_left: RayCast2D = $AnimatedSprite2D/raycast_collectible_left
