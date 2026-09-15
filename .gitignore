@@ -3,3 +3,5 @@
 /android/
 
 addons/godot_super-wakatime/
+
+yaya_core_start/**/*.tscn*.tmp
