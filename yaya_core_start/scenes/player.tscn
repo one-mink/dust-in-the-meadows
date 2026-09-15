@@ -2,7 +2,45 @@
 
 [ext_resource type="Texture2D" uid="uid://ovmccmpwmrc1" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://b65p4xtjartgt" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="Resource" uid="uid://djqe278odsy0j" path="res://inventory/playerInventory.tres" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://ctrwret5s8j7" path="res://inventory/inventory.gd" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://c37qw5hubh8f3" path="res://inv_slot.gd" id="3_qlg0r"]
+
+[sub_resource type="Resource" id="Resource_56088"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_nwyab"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_bu2n6"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_peu4o"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_d5vw0"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_kpk2x"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_kofjo"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_ahnvh"]
+script = ExtResource("3_qlg0r")
+metadata/_custom_type_script = "uid://c37qw5hubh8f3"
+
+[sub_resource type="Resource" id="Resource_tuyoq"]
+script = ExtResource("2_dqkch")
+slots = Array[ExtResource("3_qlg0r")]([SubResource("Resource_56088"), SubResource("Resource_nwyab"), SubResource("Resource_bu2n6"), SubResource("Resource_peu4o"), SubResource("Resource_d5vw0"), SubResource("Resource_kpk2x"), SubResource("Resource_kofjo"), SubResource("Resource_ahnvh")])
+metadata/_custom_type_script = "uid://ctrwret5s8j7"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_4flbx")
@@ -169,30 +207,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir14n"]
+radius = 14.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnoby"]
 size = Vector2(7.5, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=2083495719]
 script = ExtResource("1_g2els")
-inv = ExtResource("2_qhqgy")
+inv = SubResource("Resource_tuyoq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1665991903]
+position = Vector2(5, 0)
 sprite_frames = SubResource("SpriteFrames_hnoby")
 animation = &"run"
 autoplay = "idle"
 
-[node name="raycast_collectible_right" type="RayCast2D" parent="AnimatedSprite2D" unique_id=794780090]
-position = Vector2(-3, 5)
-scale = Vector2(4, 4)
-target_position = Vector2(6.75, 0)
-collide_with_areas = true
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1181124220]
 
-[node name="raycast_collectible_left" type="RayCast2D" parent="AnimatedSprite2D" unique_id=537480095]
-position = Vector2(2, 5)
-scale = Vector2(4, 4)
-target_position = Vector2(-7, 0)
-collide_with_areas = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=687965450]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ir14n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1704815300]
-position = Vector2(0, 5)
+position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_hnoby")
+
+[connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_exited"]

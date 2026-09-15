@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dj35xg3fuat2q" path="res://inventory/items/inventory_item.gd" id="1_1pg6c"]
 [ext_resource type="Texture2D" uid="uid://dirgxa534t0xf" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_bkg8t"]
-[ext_resource type="Texture2D" uid="uid://4l7n5r7iwca" path="res://assets/future_fleur.png" id="2_61c27"]
 
 [sub_resource type="GDScript" id="GDScript_bkg8t"]
 script/source = "extends Area2D
@@ -24,8 +23,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 [sub_resource type="Resource" id="Resource_dqkch"]
 script = ExtResource("1_1pg6c")
-name = "future_fleur"
-texture = ExtResource("2_61c27")
 metadata/_custom_type_script = "uid://dj35xg3fuat2q"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnoby"]

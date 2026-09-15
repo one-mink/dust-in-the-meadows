@@ -4,11 +4,12 @@ extends Control
 @onready var slots : Array = $NinePatchRect/GridContainer.get_children() 
 
 
-func _ready() -> void:
+func _ready():
+	print("UI inv instance: ", inv.get_instance_id())
+	inv.update.connect(update_slot)
 	self.visible = true
 	update_slot()
-func _process(_delta: float) -> void:
-	update_slot()
 func update_slot():
-	for i in range(min(inv.item.size(),slots.size())):
-		slots[i].update(inv.item[i])
+	print("update_slot appelé")
+	for i in range(min(inv.slots.size(),slots.size())):
+		slots[i].update(inv.slots[i])

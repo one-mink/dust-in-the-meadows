@@ -4,28 +4,26 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -250.0
 
-@export var inv : Inv
+
+@onready var inv : Inv = preload("res://inventory/playerInventory.tres")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var raycast_collectible_right: RayCast2D = $AnimatedSprite2D/raycast_collectible_right
-@onready var raycast_collectible_left: RayCast2D = $AnimatedSprite2D/raycast_collectible_left
+@onready var area_collectible: Area2D = $AnimatedSprite2D/Area2D
 
-var raycast_list = []
+var nearby_collectible = null
 
-func _ready():
-	raycast_list = [raycast_collectible_right, raycast_collectible_left]
+func collected(item):
+	print("player inv instance: ", inv.get_instance_id())
+	inv.insert(item)
+	print("items collected")
 
-func _process(_delta: float) -> void:
-	for r in raycast_list:
-		if Input.is_action_just_pressed("interact") and  r.is_colliding():
-			var object = r.get_collider()
-			if object.is_in_group("collectible"):
-				object.collected()
-				print("items collected")
-		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if Input.is_action_just_pressed("interact") and nearby_collectible:
+		nearby_collectible.collected()
+				
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -53,3 +51,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area.name)
+	if area.is_in_group("collectible"):
+		nearby_collectible = area
+	else:
+		print("pas dans le groupe collectible")
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("collectible"):
+		nearby_collectible = null

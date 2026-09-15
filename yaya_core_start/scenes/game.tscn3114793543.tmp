@@ -210,9 +210,3 @@ transform = Transform2D(12.8, 0, 0, 12.8, 0, 0)
 [node name="Inv_ui" parent="CanvasLayer" unique_id=2025290336 instance=ExtResource("3_lbhrr")]
 offset_top = 37.734375
 offset_bottom = 50.625
-
-[node name="collectible2" parent="." unique_id=2033283407 instance=ExtResource("3_lnu2h")]
-position = Vector2(98, -5)
-
-[node name="collectible3" parent="." unique_id=216586877 instance=ExtResource("3_lnu2h")]
-position = Vector2(-53, -5)

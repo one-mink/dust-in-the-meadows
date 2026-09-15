@@ -25,3 +25,13 @@ layout_mode = 2
 
 [node name="Item_display" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1107623263]
 position = Vector2(0, -3)
+
+[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=863508054]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_top = 0.9999999
+offset_right = 29.999998
+offset_bottom = 24.0
+scale = Vector2(0.1, 0.1)
+text = "999"
+horizontal_alignment = 2
