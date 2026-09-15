@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+class_name Player
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -250.0
+
+
+
 
 
 @onready var inv : Inv = preload("res://inventory/playerInventory.tres")

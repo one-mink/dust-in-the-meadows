@@ -13,5 +13,6 @@ func update(slot: InvSlot):
 		print("slot rempli avec texture =", slot.item.texture, " amount =", slot.amount)
 		item_display.visible = true
 		item_display.texture = slot.item.texture
-		amount_text.visible = true 
-		amount_text.text = str(slot.amount)
+		if slot.amount > 1:
+			amount_text.visible = true 
+			amount_text.text = str(slot.amount)

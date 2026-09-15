@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dirgxa534t0xf" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c72quk80juhga" path="res://inventory/inv_ui.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://j8bgshnvpn0t" path="res://scenes/collectible.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://dj35xg3fuat2q" path="res://inventory/items/inventory_item.gd" id="5_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("2_lnu2h")
@@ -169,6 +170,21 @@ texture = ExtResource("2_lnu2h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iywne"]
+load_path = "res://.godot/imported/seed_asset_prototype.png-c94f08d05ef8eff901e6b5ed96235bf4.ctex"
+
+[sub_resource type="Resource" id="Resource_gee14"]
+script = ExtResource("5_p57ef")
+name = "future_fleur"
+texture = SubResource("CompressedTexture2D_iywne")
+metadata/_custom_type_script = "uid://dj35xg3fuat2q"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga2k0"]
+size = Vector2(16, 23)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p57ef"]
+load_path = "res://.godot/imported/seed_asset_prototype.png-c94f08d05ef8eff901e6b5ed96235bf4.ctex"
+
 [node name="game" type="Node2D" unique_id=1823864634]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=421870642]
@@ -200,9 +216,6 @@ offset_bottom = -2.0
 theme_override_font_sizes/font_size = 8
 text = "X to interact"
 
-[node name="collectible" parent="." unique_id=453026304 instance=ExtResource("3_lnu2h")]
-position = Vector2(56, -5)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=169089293]
 scale = Vector2(12.8, 12.8)
 transform = Transform2D(12.8, 0, 0, 12.8, 0, 0)
@@ -211,8 +224,32 @@ transform = Transform2D(12.8, 0, 0, 12.8, 0, 0)
 offset_top = 37.734375
 offset_bottom = 50.625
 
-[node name="collectible2" parent="." unique_id=2033283407 instance=ExtResource("3_lnu2h")]
-position = Vector2(98, -5)
+[node name="collectible5" type="Node" parent="." unique_id=1275929402]
 
-[node name="collectible3" parent="." unique_id=216586877 instance=ExtResource("3_lnu2h")]
+[node name="future_flower" type="Node" parent="collectible5" unique_id=538028562]
+
+[node name="collectible" parent="collectible5/future_flower" unique_id=453026304 instance=ExtResource("3_lnu2h")]
+position = Vector2(56, -5)
+
+[node name="collectible3" parent="collectible5/future_flower" unique_id=216586877 instance=ExtResource("3_lnu2h")]
 position = Vector2(-53, -5)
+
+[node name="collectible2" parent="collectible5/future_flower" unique_id=2033283407 instance=ExtResource("3_lnu2h")]
+position = Vector2(93, -5)
+
+[node name="seed" type="Node" parent="collectible5" unique_id=1868280329]
+
+[node name="collectible4" parent="collectible5/seed" unique_id=331831268 instance=ExtResource("3_lnu2h")]
+position = Vector2(116, -5)
+item = SubResource("Resource_gee14")
+
+[node name="CollisionShape2D" parent="collectible5/seed/collectible4" index="0" unique_id=1021070948]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_ga2k0")
+
+[node name="Sprite2D" parent="collectible5/seed/collectible4" index="1" unique_id=462337644]
+position = Vector2(0, -4)
+texture = SubResource("CompressedTexture2D_p57ef")
+region_rect = Rect2(-0.04722786, -0.05169177, 12.090402, 19.06992)
+
+[editable path="collectible5/seed/collectible4"]
