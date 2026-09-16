@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bcda4jk05grp7" path="res://Scene/coin.tscn" id="4_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://cph31nxdbc0yb" path="res://killzone.tscn" id="5_3amdw"]
 [ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://dialogue_ui.gd" id="7_ow1sv"]
+[ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="8_75buv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_2wwxx")
@@ -215,6 +216,16 @@ _data = {
 &"move": SubResource("Animation_lquwl")
 }
 
+[sub_resource type="GDScript" id="GDScript_c2iwn"]
+script/source = "extends Label
+func show_notification(message: String): 
+	%NotificationLabel.text = message; 
+	visible = true; 
+	%NotificationBox.visible = true; 
+	$HideTimer.start()
+	
+"
+
 [node name="game" type="Node" unique_id=424763376]
 script = ExtResource("1_1xcnr")
 
@@ -337,6 +348,34 @@ offset_right = 837.0
 offset_bottom = 518.0
 text = "▶"
 
+[node name="NotificationUI" type="CanvasLayer" parent="." unique_id=470481084]
+visible = false
+script = ExtResource("8_75buv")
+
+[node name="NotificationBox" type="PanelContainer" parent="NotificationUI" unique_id=393276822]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationUI/NotificationBox" unique_id=1966953753]
+layout_mode = 2
+
+[node name="NotificationLabel" type="Label" parent="NotificationUI/NotificationBox/MarginContainer" unique_id=589182794]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Picked a Flower"
+script = SubResource("GDScript_c2iwn")
+
+[node name="HideTimer" type="Timer" parent="NotificationUI" unique_id=1668988883]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="DialogueUI" method="_on_continue_button_pressed"]
+[connection signal="timeout" from="NotificationUI/HideTimer" to="NotificationUI" method="_on_hide_timer_timeout"]

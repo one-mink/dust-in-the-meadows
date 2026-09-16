@@ -1,9 +1,10 @@
-Button
-CanvasLayer
+Timer
 Label
-VBoxContainer
 MarginContainer
 PanelContainer
+CanvasLayer
+Button
+VBoxContainer
 CheckBox
 HSlider
 GridContainer

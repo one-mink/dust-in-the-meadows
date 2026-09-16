@@ -3,10 +3,11 @@ extends Node
 func _ready():
 	print("main ready")
 	$DialogueUI.start_dialogue(get_intro_lines())
+	$NotificationUI.show_notification("New flower found!")
 
 func get_intro_lines() -> Array:
 	return [
-		{"name": "Narrator", "text": "The meadow was quiet, until..."},
+		{"name": "Hugo", "text": "I also felt i wasn't happy with a plain live so i took my camper on a journey to see more of nature and what is to be discoveredS"},
 		{"name": "Elder", "text": "Welcome, traveler."}
 	]
 
