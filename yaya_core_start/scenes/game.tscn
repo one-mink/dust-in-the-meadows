@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c72quk80juhga" path="res://inventory/inv_ui.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://j8bgshnvpn0t" path="res://scenes/collectible.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://dj35xg3fuat2q" path="res://inventory/items/inventory_item.gd" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bx3h0631j0pku" path="res://scenes/static_pnj_2d.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("2_lnu2h")
@@ -251,5 +252,8 @@ shape = SubResource("RectangleShape2D_ga2k0")
 position = Vector2(0, -4)
 texture = SubResource("CompressedTexture2D_p57ef")
 region_rect = Rect2(-0.04722786, -0.05169177, 12.090402, 19.06992)
+
+[node name="Static_pnj2D" parent="." unique_id=1424772830 instance=ExtResource("6_p57ef")]
+position = Vector2(-28, 0)
 
 [editable path="collectible5/seed/collectible4"]
