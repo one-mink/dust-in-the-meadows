@@ -1,9 +1,9 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1789580136
+::res://::1789661823
 dialogue_ui.gd::GDScript::2101917135451428652::1789580136::0::1::::<>CanvasLayer<><>0<>0<><>::
-killzone.tscn::PackedScene::5841871891145898965::1789580136::0::1::::<><><>0<>0<><>::
+killzone.tscn::PackedScene::5841871891145898965::1789580344::0::1::::<><><>0<>0<><>::uid://b4yq7l4xm5t63::::res://Script/killzone.gd
 MainMenu.gd::GDScript::3398854987121384932::1789580136::0::1::::<>Control<><>0<>0<><>::
-MainMenu.tscn::PackedScene::8223917535101141387::1789580136::0::1::::<><><>0<>0<><>::
+MainMenu.tscn::PackedScene::8223917535101141387::1789580344::0::1::::<><><>0<>0<><>::uid://booov6xnrnncu::::res://MainMenu.gd
 README.md::TextFile::-1::1788178432::0::1::::<><><>0<>0<><>::
 ::res://assets/::1789580136
 LICENSE & CREDITS.txt::TextFile::-1::1789580136::0::1::::<><><>0<>0<><>::
@@ -19,7 +19,7 @@ hurt.wav::AudioStreamWAV::4110673968141760322::1789580136::1789580136::1::::<><>
 jump.wav::AudioStreamWAV::4082727830389348937::1789580136::1789580136::1::::<><><>0<>0<>155dc572eba2078783a88093457dd2da<>res://.godot/imported/jump.wav-395b727cde98999423d5c020c9c3492f.sample::
 power_up.wav::AudioStreamWAV::6277644298873982431::1789580136::1789580136::1::::<><><>0<>0<>559b0ee345adc4eea86b7f0e27c0b92b<>res://.godot/imported/power_up.wav-8349ffe570559470036ebff4b80f7fc0.sample::
 tap.wav::AudioStreamWAV::3439988711941978242::1789580136::1789580136::1::::<><><>0<>0<>643ae8b42d588ca6cd544c3d2141755d<>res://.godot/imported/tap.wav-78d4c5a48b21a853d89bec74f20510e7.sample::
-::res://assets/sprites/::1789580136
+::res://assets/sprites/::1789580344
 coin.png::CompressedTexture2D::2505361995186073693::1789580136::1789580136::1::::<><><>0<>0<>f33437456a349a52b71f3fa748e016d8<>res://.godot/imported/coin.png-c8309bf0f8fb5f3a7d1e96a4eb3f02ce.ctex::
 fruit.png::CompressedTexture2D::5153951769538455644::1789580136::1789580136::1::::<><><>0<>0<>f9538771dbb257af96fb2ea77a69462b<>res://.godot/imported/fruit.png-3735163b668af10c2b35b52cba81b68a.ctex::
 knight.png::CompressedTexture2D::8950875563388927345::1789580136::1789580136::1::::<><><>0<>0<>cb2601521a3860aab444570105901df1<>res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex::
@@ -64,7 +64,7 @@ killzone.gd::GDScript::4472471456201127510::1789580136::0::1::::<>Area2D<><>0<>0
 notification_ui.gd::GDScript::3751620383017660648::1789580136::0::1::::<>CanvasLayer<><>0<>0<><>::
 player.gd::GDScript::5600300255116606965::1789580136::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://yaya_core_start/::1789580135
-::res://yaya_core_start/inventory/::1789580135
+::res://yaya_core_start/inventory/::1789580342
 inventory.gd::GDScript::1934069946823249810::1789578677::0::1::::Inv<>Resource<><>0<>0<><>::
 inv_slot.gd::GDScript::6805201424155686354::1789578677::0::1::::InvSlot<>Resource<><>0<>0<><>::
 inv_slot_ui.gd::GDScript::2768101728300550279::1789578677::0::1::::<>Panel<><>0<>0<><>::

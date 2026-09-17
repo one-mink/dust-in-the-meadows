@@ -1,5 +1,4 @@
-res://Scene/main.gd
-res://dialogue_ui.gd
-res://Scene/main.tscn
-res://Script/notification_label.gd
-res://Script/notification_ui.gd
+res://Homescreen/van.tscn
+res://Homescreen/furniture.tscn
+res://Homescreen/button.gd
+res://Homescreen/grid_container.gd
