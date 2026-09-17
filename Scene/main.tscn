@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cph31nxdbc0yb" path="res://killzone.tscn" id="5_3amdw"]
 [ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://dialogue_ui.gd" id="7_ow1sv"]
 [ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="8_75buv"]
+[ext_resource type="Script" uid="uid://b5mw3h4vqin71" path="res://Script/quest_ui.gd" id="9_c2iwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_2wwxx")
@@ -375,7 +376,43 @@ script = SubResource("GDScript_c2iwn")
 wait_time = 2.0
 one_shot = true
 
+[node name="QuestUI" type="CanvasLayer" parent="." unique_id=1379699824]
+script = ExtResource("9_c2iwn")
+
+[node name="QuestPanel" type="PanelContainer" parent="QuestUI" unique_id=1344321746]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -252.0
+offset_bottom = 394.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="QuestUI/QuestPanel" unique_id=271903798]
+layout_mode = 2
+
+[node name="QuestList" type="VBoxContainer" parent="QuestUI/QuestPanel/MarginContainer" unique_id=462498546]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuestButton" type="Button" parent="QuestUI" unique_id=275287344]
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 9.0
+offset_right = -19.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.078431375, 0.58431375, 1)
+theme_override_font_sizes/font_size = 25
+text = "Q"
+icon_alignment = 1
+
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="DialogueUI" method="_on_continue_button_pressed"]
 [connection signal="timeout" from="NotificationUI/HideTimer" to="NotificationUI" method="_on_hide_timer_timeout"]
+[connection signal="pressed" from="QuestUI/QuestButton" to="QuestUI" method="_on_quest_button_pressed"]

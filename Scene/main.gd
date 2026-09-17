@@ -2,6 +2,7 @@ extends Node
 
 func _ready():
 	print("main ready")
+	$QuestUI.add_quest("Pick flowers", "Pick the white flowers in the grassland")
 	$DialogueUI.start_dialogue(get_intro_lines())
 	$NotificationUI.show_notification("New flower found!")
 
@@ -12,6 +13,7 @@ func get_intro_lines() -> Array:
 	]
 
 func _unhandled_input(event):
+	$QuestUI.complete_quest("Pick flowers")
 	if event.is_action_pressed("pause"):
 		print("game paused")
 		get_tree().paused = !get_tree().paused
