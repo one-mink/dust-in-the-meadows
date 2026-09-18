@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wtn4foykpuoc"]
 
 [ext_resource type="Script" uid="uid://dh5rtmjx2xi8i" path="res://Homescreen/grid_container.gd" id="2_c1g8s"]
+[ext_resource type="Script" uid="uid://cadu6lro2hmwi" path="res://Homescreen/home.gd" id="2_wplwj"]
 
 [node name="Van" type="Node2D" unique_id=1555077790]
 
@@ -23,6 +24,9 @@ offset_right = 1132.0
 offset_bottom = 629.0
 columns = 2
 script = ExtResource("2_c1g8s")
+
+[node name="Home" type="Node2D" parent="." unique_id=1029439109]
+script = ExtResource("2_wplwj")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/GridContainer" method="_on_button_pressed"]
