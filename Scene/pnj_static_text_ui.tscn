@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ufq803be66vn"]
+
+[ext_resource type="Script" uid="uid://doj4tukjbxyo4" path="res://Script/pnj_static_text_ui.gd" id="1_rn3ek"]
+[ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_3d8iy"]
+[ext_resource type="FontFile" uid="uid://b22nehatm3xfn" path="res://brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="3_3nte2"]
+
+[node name="pnj_static_text_ui" type="Control" unique_id=221893977]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 77.0
+offset_bottom = 19.0
+script = ExtResource("1_rn3ek")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1109935632]
+layout_mode = 0
+offset_right = 77.0
+offset_bottom = 19.0
+texture = ExtResource("2_3d8iy")
+region_rect = Rect2(49.557686, 178.65074, 12.157471, 12.157471)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="NinePatchRect" unique_id=210760480]
+custom_minimum_size = Vector2(-100, -1)
+custom_maximum_size = Vector2(70, 18)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 74.0
+offset_bottom = 18.0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_3nte2")
+theme_override_font_sizes/font_size = 4

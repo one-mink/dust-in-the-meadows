@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://s02ub01r3qm1"]
+
+[ext_resource type="Script" uid="uid://dov3f8yc4babv" path="res://inventory/items/collectible_2.0.gd" id="1_yovlu"]
+[ext_resource type="Texture2D" uid="uid://byq2faa24no7h" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/future_flower.png" id="2_w2hbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir14n"]
+radius = 11.045361
+
+[node name="collectible" type="StaticBody2D" unique_id=234885741]
+script = ExtResource("1_yovlu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1703130950]
+texture = ExtResource("2_w2hbl")
+
+[node name="interact_area" type="Area2D" parent="." unique_id=304978038 groups=["collectible"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=652910174]
+shape = SubResource("CircleShape2D_ir14n")
+
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]

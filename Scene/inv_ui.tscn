@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://nkome1qecchp"]
+
+[ext_resource type="Script" uid="uid://cgleuepnsj4se" path="res://inventory/Inv_ui.gd" id="1_3d5uf"]
+[ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_ynrc3"]
+[ext_resource type="PackedScene" uid="uid://b1ahlqm1md5r3" path="res://inventory/inv_slot_ui.tscn" id="2_3d5uf"]
+
+[node name="inv_ui" type="Control" unique_id=1085945026]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3d5uf")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1243932472]
+layout_mode = 0
+offset_right = 290.0
+offset_bottom = 31.0
+texture = ExtResource("1_ynrc3")
+region_rect = Rect2(16.704086, 239.21777, 15.624348, 16.782227)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=1879335188]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -11.0
+offset_right = 141.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 8
+
+[node name="inv_slot_ui" parent="NinePatchRect/GridContainer" unique_id=1515673972 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui2" parent="NinePatchRect/GridContainer" unique_id=1784610250 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui3" parent="NinePatchRect/GridContainer" unique_id=1984026529 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui4" parent="NinePatchRect/GridContainer" unique_id=230017562 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui5" parent="NinePatchRect/GridContainer" unique_id=2136806104 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui6" parent="NinePatchRect/GridContainer" unique_id=2138928612 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui7" parent="NinePatchRect/GridContainer" unique_id=1081770708 instance=ExtResource("2_3d5uf")]
+layout_mode = 2
+
+[node name="inv_slot_ui8" parent="NinePatchRect/GridContainer" unique_id=1186737894 instance=ExtResource("2_3d5uf")]
+layout_mode = 2

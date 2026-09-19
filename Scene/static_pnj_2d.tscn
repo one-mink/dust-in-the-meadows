@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bx3h0631j0pku"]
+
+[ext_resource type="Script" uid="uid://dhjjw8syb8mwm" path="res://Script/static_pnj_2d.gd" id="1_kujvy"]
+[ext_resource type="Texture2D" uid="uid://c5rdk7f06i5fh" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_purple.png" id="2_l830k"]
+[ext_resource type="PackedScene" uid="uid://ufq803be66vn" path="res://Scene/pnj_static_text_ui.tscn" id="3_3c4gu"]
+[ext_resource type="FontFile" uid="uid://catdjqw8epjsg" path="res://brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_hk25w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk25w"]
+atlas = ExtResource("2_l830k")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkyp2"]
+atlas = ExtResource("2_l830k")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb1d6"]
+atlas = ExtResource("2_l830k")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk4c1"]
+atlas = ExtResource("2_l830k")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir14n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk25w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkyp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb1d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk4c1")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir14n"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnoby"]
+
+[node name="Static_pnj2D" type="StaticBody2D" unique_id=1424772830]
+script = ExtResource("1_kujvy")
+text = ["balabalaanbaalak", "kikikkikikikik", "mioum miaw mew meoasd", "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu", "end hehe"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1485080444]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_ir14n")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.5078362
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=616328695]
+
+[node name="Collision_interact" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1689946122]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_ir14n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=337448627]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_hnoby")
+
+[node name="pnj_static_text_ui" parent="." unique_id=221893977 instance=ExtResource("3_3c4gu")]
+offset_left = -15.922985
+offset_top = 2.4441009
+offset_right = 61.077015
+offset_bottom = 21.444101
+
+[node name="NinePatchRect" parent="pnj_static_text_ui" index="0" unique_id=1109935632]
+offset_left = -19.077015
+offset_top = -37.4441
+offset_right = 57.922985
+offset_bottom = -18.4441
+
+[node name="Label" parent="pnj_static_text_ui/NinePatchRect" index="0" unique_id=210760480]
+offset_right = 73.0
+pivot_offset = Vector2(30, -6)
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("4_hk25w")
+autowrap_mode = 3
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="pnj_static_text_ui"]

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://4vwghapw4se4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5s0r"]
+
+[node name="furniture" type="Node2D" unique_id=2067562637]
+
+[node name="furniture" type="Area2D" parent="." unique_id=1311367930]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="furniture" unique_id=482855878]
+shape = SubResource("RectangleShape2D_m5s0r")
+
+[node name="furniture-img" type="Node2D" parent="furniture" unique_id=1453753332]

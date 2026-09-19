@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b1ahlqm1md5r3"]
+
+[ext_resource type="Script" uid="uid://bfo5h4c2t532b" path="res://inventory/inv_slot_ui.gd" id="1_56088"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcns4"]
+load_path = "res://.godot/imported/world_tileset.png-d354f49e9c1db8e486c6116e12620814.ctex"
+
+[node name="inv_slot_ui" type="Panel" unique_id=1515673972]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(28, 21)
+offset_right = 28.0
+offset_bottom = 21.0
+script = ExtResource("1_56088")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1676513620]
+scale = Vector2(1.5, 1.3333333)
+texture = SubResource("CompressedTexture2D_kcns4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 175.45328, 16.041412, 15.421722)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1739634885]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 17.0
+offset_bottom = 14.0
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=1511529085]
+layout_mode = 2
+
+[node name="Item_display" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1107623263]
+position = Vector2(0, -3)
+
+[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=863508054]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = 2.0000005
+offset_top = 4.000001
+offset_right = 98.0
+offset_bottom = 81.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 56
+text = "999"
+horizontal_alignment = 2
