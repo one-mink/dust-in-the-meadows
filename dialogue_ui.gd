@@ -4,6 +4,7 @@ var current_line: int = 0
 
 func start_dialogue(lines: Array):
 	visible = true
+	print("recherche Player: ", get_node("../Player"))
 	get_node("../Player").set_physics_process(false)
 	dialogue_lines = lines
 	current_line = 0

@@ -1,46 +1,40 @@
 [gd_scene format=3 uid="uid://bx3h0631j0pku"]
 
-[ext_resource type="Script" uid="uid://dhjjw8syb8mwm" path="res://scripts/static_pnj_2d.gd" id="1_kujvy"]
-[ext_resource type="Texture2D" uid="uid://ck6f58a41lpnb" path="res://assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_purple.png" id="1_xsoug"]
-[ext_resource type="PackedScene" uid="uid://ufq803be66vn" path="res://scenes/pnj_static_text_ui.tscn" id="3_3c4gu"]
+[ext_resource type="Script" uid="uid://dhjjw8syb8mwm" path="res://Script/static_pnj_2d.gd" id="1_kujvy"]
+[ext_resource type="Texture2D" uid="uid://c5rdk7f06i5fh" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_purple.png" id="2_l830k"]
+[ext_resource type="PackedScene" uid="uid://ufq803be66vn" path="res://Scene/pnj_static_text_ui.tscn" id="3_3c4gu"]
+[ext_resource type="FontFile" uid="uid://catdjqw8epjsg" path="res://brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_hk25w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kujvy"]
-atlas = ExtResource("1_xsoug")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c4gu"]
-atlas = ExtResource("1_xsoug")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk25w"]
+atlas = ExtResource("2_l830k")
 region = Rect2(0, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oao20"]
-atlas = ExtResource("1_xsoug")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkyp2"]
+atlas = ExtResource("2_l830k")
 region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ooji2"]
-atlas = ExtResource("1_xsoug")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb1d6"]
+atlas = ExtResource("2_l830k")
 region = Rect2(48, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnhnd"]
-atlas = ExtResource("1_xsoug")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk4c1"]
+atlas = ExtResource("2_l830k")
 region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir14n"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kujvy")
+"texture": SubResource("AtlasTexture_hk25w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3c4gu")
+"texture": SubResource("AtlasTexture_hkyp2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oao20")
+"texture": SubResource("AtlasTexture_tb1d6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ooji2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hnhnd")
+"texture": SubResource("AtlasTexture_qk4c1")
 }],
 "loop": 1,
 "name": &"idle",
@@ -88,7 +82,8 @@ offset_bottom = -18.4441
 [node name="Label" parent="pnj_static_text_ui/NinePatchRect" index="0" unique_id=210760480]
 offset_right = 73.0
 pivot_offset = Vector2(30, -6)
-theme_override_constants/line_spacing = -3
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("4_hk25w")
 autowrap_mode = 3
 
 [connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
