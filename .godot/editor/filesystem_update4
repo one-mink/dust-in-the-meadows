@@ -1,3 +1,2 @@
-res://Script/quest_ui.gd
+res://Script/tutorial_ui.gd
 res://Scene/main.tscn
-res://Scene/main.gd

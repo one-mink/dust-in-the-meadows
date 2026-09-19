@@ -1,14 +1,6 @@
 Button
+Label
 VBoxContainer
 MarginContainer
 PanelContainer
 CanvasLayer
-Timer
-Label
-CheckBox
-HSlider
-GridContainer
-Control
-CenterContainer
-Node2D
-ColorRect

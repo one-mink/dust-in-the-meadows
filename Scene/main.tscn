@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://dialogue_ui.gd" id="7_ow1sv"]
 [ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="8_75buv"]
 [ext_resource type="Script" uid="uid://b5mw3h4vqin71" path="res://Script/quest_ui.gd" id="9_c2iwn"]
+[ext_resource type="Script" uid="uid://do2tdq133c1c8" path="res://Script/tutorial_ui.gd" id="10_3pt4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_2wwxx")
@@ -411,8 +412,51 @@ theme_override_font_sizes/font_size = 25
 text = "Q"
 icon_alignment = 1
 
+[node name="TutorialUI" type="CanvasLayer" parent="." unique_id=1856518266]
+script = ExtResource("10_3pt4j")
+
+[node name="TutorialPanel" type="PanelContainer" parent="TutorialUI" unique_id=731193735]
+unique_name_in_owner = true
+offset_right = 450.0
+offset_bottom = 332.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialUI/TutorialPanel" unique_id=842079439]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialUI/TutorialPanel/MarginContainer" unique_id=313128876]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=760551646]
+layout_mode = 2
+text = "How to Play"
+
+[node name="Tutorialtext" type="Label" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=1294074846]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+text = "WASD or Arrow Keys — Move
+Space — Jump
+E — Interact
+Esc — Pause"
+autowrap_mode = 3
+
+[node name="GotIt" type="Button" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=1874723532]
+layout_mode = 2
+text = "Got It"
+
+[node name="TutorialButton" type="Button" parent="TutorialUI" unique_id=932048351]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(48, 48)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+autowrap_mode = 3
+
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="DialogueUI" method="_on_continue_button_pressed"]
 [connection signal="timeout" from="NotificationUI/HideTimer" to="NotificationUI" method="_on_hide_timer_timeout"]
 [connection signal="pressed" from="QuestUI/QuestButton" to="QuestUI" method="_on_quest_button_pressed"]
+[connection signal="pressed" from="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer/GotIt" to="TutorialUI" method="_on_got_it_pressed"]
+[connection signal="pressed" from="TutorialUI/TutorialButton" to="TutorialUI" method="_on_tutorial_button_pressed"]
