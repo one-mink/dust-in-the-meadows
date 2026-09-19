@@ -1,7 +1,9 @@
 extends GridContainer
 
+class_name Grid
 signal selected_furniture(furniture)
-var furniture_list = ["future_flower", "coin"]
+
+static var furniture_list = ["future_flower", "coin"]
 
 func _ready():
 	visible = false
@@ -19,6 +21,7 @@ func _ready():
 
 func _on_button_clicked(furniture):
 	selected_furniture.emit(furniture)
+	visible = false
 	
 
 func _on_button_pressed() -> void:
