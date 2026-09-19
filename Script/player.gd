@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -550.0
 
 
 
@@ -31,12 +31,12 @@ func _physics_process(delta: float) -> void:
 				
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("left", "right")
+	var direction := Input.get_axis("Left", "Right")
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print(area.name)
 	if area.is_in_group("collectible"):
-		nearby_collectible = area
+		nearby_collectible = area.get_parent()
 	else:
 		print("pas dans le groupe collectible")
 

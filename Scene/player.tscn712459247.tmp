@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://hn672ra3a3oh"]
 
-[ext_resource type="Script" uid="uid://b65p4xtjartgt" path="res://Script/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://b65p4xtjartgt" path="res://yaya_core_start/scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b1jorc3el0vho" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="2_y8w33"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa75v"]
@@ -169,13 +169,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ir14n"]
-radius = 16.0
+radius = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnoby"]
 size = Vector2(7.5, 15)
 
 [node name="player" type="CharacterBody2D" unique_id=2083495719]
-z_index = 100
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1665991903]
@@ -183,7 +182,7 @@ position = Vector2(5, 0)
 sprite_frames = SubResource("SpriteFrames_hnoby")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.8654464
+frame_progress = 0.8744251
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=1181124220]
 
