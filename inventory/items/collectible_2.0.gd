@@ -7,6 +7,8 @@ var player = null
 	
 func collected():
 	if player != null:
+		get_tree().current_scene.get_node("NotificationUI").show_notification(item.name + " picked up!")
+		get_tree().current_scene.get_node("HerbariumUI").discover_flower(item.name, item.description)
 		player.collected(item)
 		await get_tree().create_timer(0.1).timeout
 		queue_free()
