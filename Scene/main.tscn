@@ -362,7 +362,7 @@ text = "SETTINGS"
 layout_mode = 2
 text = "Volume"
 
-[node name="HSlider" type="HSlider" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=550916583]
+[node name="GameHSlider" type="HSlider" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=550916583]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
@@ -373,7 +373,15 @@ value = 1.0
 layout_mode = 2
 text = "FullScreen"
 
-[node name="CheckBox" type="CheckBox" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1694887092]
+[node name="GameCheckBox" type="CheckBox" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1694887092]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1472188330]
+layout_mode = 2
+text = "Dark Mode"
+
+[node name="GameCheckButton" type="CheckButton" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=826780517]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -663,6 +671,9 @@ text = "🛒"
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameBackButton" to="." method="_on_game_back_button_pressed"]
 [connection signal="pressed" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameBackButton" to="PauseMenu/GameSettingsPanel" method="_on_game_back_button_pressed"]
+[connection signal="value_changed" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameHSlider" to="PauseMenu/GameSettingsPanel" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameCheckBox" to="PauseMenu/GameSettingsPanel" method="_on_check_box_toggled"]
+[connection signal="toggled" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameCheckButton" to="PauseMenu/GameSettingsPanel" method="_on_theme_toggle_toggled"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="DialogueUI" method="_on_continue_button_pressed"]
 [connection signal="timeout" from="NotificationUI/HideTimer" to="NotificationUI" method="_on_hide_timer_timeout"]

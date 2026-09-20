@@ -1,10 +1,11 @@
 extends Node
 const FLOWER_ITEM_NAME := "flower" 
+
 func _ready():
 	print("main ready")
-	$HerbariumUI.discover_flower("White Flower", "Grows in open grassland.")
 	$SaveManager.load_game()
-	$QuestUI.add_quest("Pick flowers", "Pick the white flowers in the grassland")
+	if $QuestUI.quests.is_empty():
+		$QuestUI.add_quest("Pick flowers", "Pick the white flowers in the grassland")
 	$DialogueUI.start_dialogue(get_intro_lines())
 	
 	$Player.item_collected.connect(on_player_item_collected)

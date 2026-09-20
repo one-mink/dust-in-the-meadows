@@ -10,9 +10,10 @@ func _on_visibility_changed() -> void:
 		sync_to_current_settings()
 
 func sync_to_current_settings() -> void:
-	%HSlider.set_value_no_signal(db_to_linear(AudioServer.get_bus_volume_db(0)))
-	%CheckBox.set_pressed_no_signal(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
-
+	%GameHSlider.set_value_no_signal(db_to_linear(AudioServer.get_bus_volume_db(0)))
+	%GameCheckBox.set_pressed_no_signal(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN)
+	%GameCheckButton.set_pressed_no_signal(get_tree().root.theme != null)
+	
 func _on_h_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(value))
 
