@@ -4,7 +4,7 @@ func _ready():
 	%Play.pressed.connect(_on_play_clicked)
 
 func _on_play_clicked():
-	get_tree().change_scene_to_file("res://Scene/main.tscn")
+	get_tree().change_scene_to_file("res://level/lvl1/lvl_1_start.tscn")
 
 
 func _on_settings_pressed() -> void:
