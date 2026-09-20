@@ -139,6 +139,14 @@ text = "FullScreen"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="Label2" type="Label" parent="SettingPanel/MarginContainer/VBoxContainer" unique_id=2143000498]
+layout_mode = 2
+text = "Dark Mode"
+
+[node name="CheckButton" type="CheckButton" parent="SettingPanel/MarginContainer/VBoxContainer" unique_id=758038933]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="SettingPanel/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

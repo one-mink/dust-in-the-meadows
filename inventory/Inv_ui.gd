@@ -9,6 +9,11 @@ func _ready():
 	inv.update.connect(update_slot)
 	self.visible = true
 	update_slot()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_inventory"):
+		self.visible = !self.visible
+
 func update_slot():
 	print("update_slot appelé")
 	for i in range(min(inv.slots.size(),slots.size())):

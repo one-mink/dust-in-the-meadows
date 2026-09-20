@@ -5,6 +5,7 @@ class_name Player
 const SPEED = 150.0
 const JUMP_VELOCITY = -550.0
 
+signal item_collected(item)
 
 
 
@@ -20,6 +21,7 @@ func collected(item):
 	print("player inv instance: ", inv.get_instance_id())
 	inv.insert(item)
 	print("items collected")
+	item_collected.emit(item)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
