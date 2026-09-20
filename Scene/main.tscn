@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvbq6e6m0kfr" path="res://Scene/platform.tscn" id="3_1xcnr"]
 [ext_resource type="PackedScene" uid="uid://bcda4jk05grp7" path="res://Scene/coin.tscn" id="4_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://cph31nxdbc0yb" path="res://killzone.tscn" id="5_3amdw"]
+[ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="6_p2wc2"]
 [ext_resource type="Script" uid="uid://cyjb0sdov02rf" path="res://Script/game_settings_panel.gd" id="6_v2gmf"]
 [ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://dialogue_ui.gd" id="7_ow1sv"]
 [ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="8_75buv"]
@@ -18,6 +19,7 @@
 [ext_resource type="Script" uid="uid://b8qrm2arcxmmb" path="res://Script/save_manager.gd" id="16_jcbur"]
 [ext_resource type="Script" uid="uid://dhwwh6naojqhj" path="res://Script/herbarium_ui.gd" id="17_0y2cb"]
 [ext_resource type="Script" uid="uid://bsuj6212smu3c" path="res://Script/shop_ui.gd" id="18_2ix4a"]
+[ext_resource type="Script" uid="uid://d1pat0dbwvu26" path="res://Script/crafting_ui.gd" id="20_jbas8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_2wwxx")
@@ -236,6 +238,10 @@ func show_notification(message: String):
 	
 "
 
+[sub_resource type="GDScript" id="GDScript_p2wc2"]
+script/source = "extends PanelContainer
+"
+
 [node name="game" type="Node" unique_id=424763376]
 script = ExtResource("1_1xcnr")
 
@@ -298,6 +304,7 @@ offset_right = 197.5
 offset_bottom = 100.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu/PauseContainer" unique_id=1844604354]
 layout_mode = 2
@@ -334,6 +341,7 @@ offset_right = 199.0
 offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
 script = ExtResource("6_v2gmf")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu/GameSettingsPanel" unique_id=2113463820]
@@ -360,6 +368,7 @@ text = "SETTINGS"
 
 [node name="Volume" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=385432992]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "Volume"
 
 [node name="GameHSlider" type="HSlider" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=550916583]
@@ -371,6 +380,7 @@ value = 1.0
 
 [node name="FullScreen" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=102756949]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "FullScreen"
 
 [node name="GameCheckBox" type="CheckBox" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1694887092]
@@ -379,6 +389,7 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1472188330]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "Dark Mode"
 
 [node name="GameCheckButton" type="CheckButton" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=826780517]
@@ -412,12 +423,14 @@ layout_mode = 2
 [node name="NameLabel" type="Label" parent="DialogueUI/DialogueBox/MarginContainer/VBoxContainer" unique_id=592772171]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "huge"
 
 [node name="TextLabel" type="Label" parent="DialogueUI/DialogueBox/MarginContainer/VBoxContainer" unique_id=98665671]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "on a sunny morning hugo got out of his camper to go and find resources to provide for his family"
 autowrap_mode = 2
 
@@ -448,6 +461,7 @@ layout_mode = 2
 [node name="NotificationLabel" type="Label" parent="NotificationUI/NotificationBox/MarginContainer" unique_id=589182794]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Picked a Flower"
 script = SubResource("GDScript_c2iwn")
 
@@ -467,6 +481,7 @@ anchor_right = 1.0
 offset_left = -252.0
 offset_bottom = 394.0
 grow_horizontal = 0
+theme_override_styles/panel = ExtResource("6_p2wc2")
 
 [node name="MarginContainer" type="MarginContainer" parent="QuestUI/QuestPanel" unique_id=271903798]
 layout_mode = 2
@@ -506,11 +521,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=760551646]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "How to Play"
 
 [node name="Tutorialtext" type="Label" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=1294074846]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "WASD or Arrow Keys — Move
 Space — Jump
 E — Interact/ Inventory
@@ -533,6 +550,7 @@ autowrap_mode = 3
 
 [node name="Static_pnj2D" parent="." unique_id=1424772830 instance=ExtResource("10_3pt4jb")]
 position = Vector2(357, 288)
+script = ExtResource("8_75buv")
 
 [node name="Player" parent="." unique_id=2083495719 instance=ExtResource("2_3amdw")]
 position = Vector2(210, 275)
@@ -589,6 +607,7 @@ offset_right = 224.0
 offset_bottom = 177.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
 
 [node name="MarginContainer" type="MarginContainer" parent="HerbariumUI/HerbariumPanel" unique_id=670793932]
 layout_mode = 2
@@ -598,6 +617,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HerbariumUI/HerbariumPanel/MarginContainer/VBoxContainer" unique_id=595765951]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Herbarium"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HerbariumUI/HerbariumPanel/MarginContainer/VBoxContainer" unique_id=1252770507]
@@ -636,6 +656,7 @@ offset_right = 215.0
 offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopUI/ShopPanel" unique_id=1884691958]
 layout_mode = 2
@@ -645,12 +666,14 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=1625961860]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 theme_override_font_sizes/font_size = 18
 text = "SHOP"
 
 [node name="CoinLabel" type="Label" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=589450530]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Coins:0"
 
 [node name="ShopList" type="VBoxContainer" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=1118872688]
@@ -665,6 +688,54 @@ offset_right = 1139.0
 offset_bottom = 181.0
 theme_override_font_sizes/font_size = 28
 text = "🛒"
+
+[node name="CraftingUI" type="CanvasLayer" parent="." unique_id=632001989]
+script = ExtResource("20_jbas8")
+
+[node name="CraftingPanel" type="PanelContainer" parent="CraftingUI" unique_id=1308473113]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.5
+offset_top = -180.0
+offset_right = 224.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
+script = SubResource("GDScript_p2wc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CraftingUI/CraftingPanel" unique_id=175227691]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingUI/CraftingPanel/MarginContainer" unique_id=142673558]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CraftingUI/CraftingPanel/MarginContainer/VBoxContainer" unique_id=744808884]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.022749474, 0.017658502, 0.025420642, 1)
+theme_override_font_sizes/font_size = 20
+text = "Crafting"
+horizontal_alignment = 1
+
+[node name="CraftingList" type="VBoxContainer" parent="CraftingUI/CraftingPanel/MarginContainer/VBoxContainer" unique_id=483033385]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CraftingButton" type="Button" parent="CraftingUI" unique_id=2120644324]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1091.0
+offset_top = 194.0
+offset_right = 1139.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 31
+text = "C"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1535608556]
 
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
@@ -682,3 +753,4 @@ text = "🛒"
 [connection signal="pressed" from="TutorialUI/TutorialButton" to="TutorialUI" method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="HerbariumUI/HerbariumButton" to="HerbariumUI" method="_on_herbarium_button_pressed"]
 [connection signal="pressed" from="ShopUI/ShopButton" to="ShopUI" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="CraftingUI/CraftingButton" to="CraftingUI" method="_on_crafting_button_pressed"]

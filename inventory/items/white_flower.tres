@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_l2o0h")
-name = "White flower"
+name = "white flower"
 texture = ExtResource("2_l0g3w")
 description = "A beautiful moonlight white flower"
