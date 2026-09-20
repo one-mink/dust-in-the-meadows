@@ -37,3 +37,16 @@ func _unhandled_input(event):
 func _on_resume_pressed() -> void:
 	get_tree().paused = false
 	$PauseMenu/PauseContainer.visible = false
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+
+func _on_settings_pressed() -> void:
+	$PauseMenu/PauseContainer.visible = false
+	$PauseMenu/GameSettingsPanel.visible = true
+
+func _on_game_back_button_pressed() -> void:
+	$PauseMenu/PauseContainer.visible = true
