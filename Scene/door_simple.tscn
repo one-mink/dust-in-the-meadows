@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b4ud847kwls38"]
+
+[ext_resource type="Script" uid="uid://v3nmnhbcsw0j" path="res://door_simple.gd" id="1_ogkmr"]
+[ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_cb4cp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnoby"]
+size = Vector2(16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ksii"]
+atlas = ExtResource("2_cb4cp")
+region = Rect2(48, 210, 16, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umhvd"]
+atlas = ExtResource("2_cb4cp")
+region = Rect2(32, 210, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir14n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ksii")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umhvd")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ir14n"]
+radius = 14.0
+height = 58.0
+
+[node name="door_simple" type="StaticBody2D" unique_id=1378512163]
+script = ExtResource("1_ogkmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=180568751]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_hnoby")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1702889591]
+position = Vector2(0, -2.999999)
+scale = Vector2(1, 1.1428571)
+sprite_frames = SubResource("SpriteFrames_ir14n")
+animation = &"closed"
+autoplay = "closed"
+
+[node name="interac_area" type="Area2D" parent="." unique_id=2027487617]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interac_area" unique_id=1980054819]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_ir14n")
+
+[connection signal="body_entered" from="interac_area" to="." method="_on_interac_area_body_entered"]
+[connection signal="body_exited" from="interac_area" to="." method="_on_interac_area_body_exited"]
