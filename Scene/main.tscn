@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://d2lrbn0o7dynh" path="res://inventory/items/seed.tres" id="13_0sxm5"]
 [ext_resource type="Script" uid="uid://b8qrm2arcxmmb" path="res://Script/save_manager.gd" id="16_jcbur"]
 [ext_resource type="Script" uid="uid://dhwwh6naojqhj" path="res://Script/herbarium_ui.gd" id="17_0y2cb"]
+[ext_resource type="Script" uid="uid://bsuj6212smu3c" path="res://Script/shop_ui.gd" id="18_2ix4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_2wwxx")
@@ -609,6 +610,54 @@ theme_override_font_sizes/font_size = 24
 text = "H"
 autowrap_mode = 3
 
+[node name="ShopUI" type="CanvasLayer" parent="." unique_id=82170448]
+unique_name_in_owner = true
+script = ExtResource("18_2ix4a")
+
+[node name="ShopPanel" type="PanelContainer" parent="ShopUI" unique_id=1346583713]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -121.0
+offset_right = 215.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopUI/ShopPanel" unique_id=1884691958]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopUI/ShopPanel/MarginContainer" unique_id=1848820944]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=1625961860]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "SHOP"
+
+[node name="CoinLabel" type="Label" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=589450530]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Coins:0"
+
+[node name="ShopList" type="VBoxContainer" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=1118872688]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShopButton" type="Button" parent="ShopUI" unique_id=1073425013]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1091.0
+offset_top = 133.0
+offset_right = 1139.0
+offset_bottom = 181.0
+theme_override_font_sizes/font_size = 28
+text = "🛒"
+
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
@@ -621,3 +670,4 @@ autowrap_mode = 3
 [connection signal="pressed" from="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer/GotIt" to="TutorialUI" method="_on_got_it_pressed"]
 [connection signal="pressed" from="TutorialUI/TutorialButton" to="TutorialUI" method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="HerbariumUI/HerbariumButton" to="HerbariumUI" method="_on_herbarium_button_pressed"]
+[connection signal="pressed" from="ShopUI/ShopButton" to="ShopUI" method="_on_shop_button_pressed"]

@@ -27,6 +27,7 @@ func on_player_item_collected(item) -> void:
 
 func _on_coin_collected() -> void:
 	$NotificationUI.show_notification("+1 coin!")
+	%ShopUI.add_coins(1)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
