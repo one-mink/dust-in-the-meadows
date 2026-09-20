@@ -1,19 +1,33 @@
 extends Node
 
+const FLOWER_ITEM_NAME := "flower" 
 func _ready():
 	print("main ready")
 	$QuestUI.add_quest("Pick flowers", "Pick the white flowers in the grassland")
 	$DialogueUI.start_dialogue(get_intro_lines())
-	$NotificationUI.show_notification("New flower found!")
+	
+	$Player.item_collected.connect(on_player_item_collected)
+	for coin in $Coin.get_children():
+		coin.coin_collected.connect(_on_coin_collected)
 
 func get_intro_lines() -> Array:
 	return [
-		{"name": "Hugo", "text": "I also felt i wasn't happy with a plain live so i took my camper on a journey to see more of nature and what is to be discoveredS"},
-		{"name": "Elder", "text": "Welcome, traveler."}
+		{"name": "Narrator", "text": "You pull your camper off the road and park it at the edge of the meadow."},
+		{"name": "Elder", "text": "Well, look at you. New wheels, new face — welcome to the valley."},
+		{"name": "Elder", "text": "Folks around here collect flowers. Every patch, every season, something different to find."},
+		{"name": "Elder", "text": "Start your herbarium, fix up that camper of yours, and get to know the villages while you're at it."},
+		{"name": "Elder", "text": "No rush. Put the radio on, take the scenic route. This place has a way of slowing you down."}
 	]
 
+func on_player_item_collected(item) -> void:
+	$NotificationUI.show_notification(item.name + " found!")
+	if item.name == FLOWER_ITEM_NAME:
+		$QuestUI.complete_quest("Pick flowers")
+
+func _on_coin_collected() -> void:
+	$NotificationUI.show_notification("+1 coin!")
+
 func _unhandled_input(event):
-	$QuestUI.complete_quest("Pick flowers")
 	if event.is_action_pressed("pause"):
 		print("game paused")
 		get_tree().paused = !get_tree().paused
