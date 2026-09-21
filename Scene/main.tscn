@@ -550,7 +550,7 @@ autowrap_mode = 3
 
 [node name="Static_pnj2D" parent="." unique_id=1424772830 instance=ExtResource("10_3pt4jb")]
 position = Vector2(357, 288)
-script = ExtResource("8_75buv")
+text = ["hehdhdhdhdhdhdh"]
 
 [node name="Player" parent="." unique_id=2083495719 instance=ExtResource("2_3amdw")]
 position = Vector2(210, 275)
@@ -754,3 +754,6 @@ text = "C"
 [connection signal="pressed" from="HerbariumUI/HerbariumButton" to="HerbariumUI" method="_on_herbarium_button_pressed"]
 [connection signal="pressed" from="ShopUI/ShopButton" to="ShopUI" method="_on_shop_button_pressed"]
 [connection signal="pressed" from="CraftingUI/CraftingButton" to="CraftingUI" method="_on_crafting_button_pressed"]
+
+[editable path="Static_pnj2D"]
+[editable path="Static_pnj2D/pnj_static_text_ui"]
