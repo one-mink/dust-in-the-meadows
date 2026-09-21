@@ -3,6 +3,7 @@ extends StaticBody2D
 
 @export var scene_direction: String  
 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_on_zone = false
