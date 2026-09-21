@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bx3h0631j0pku" path="res://Scene/static_pnj_2d.tscn" id="7_84lum"]
 [ext_resource type="PackedScene" uid="uid://bcda4jk05grp7" path="res://Scene/coin.tscn" id="8_sm2ds"]
 [ext_resource type="PackedScene" uid="uid://cph31nxdbc0yb" path="res://killzone.tscn" id="9_8y5so"]
+[ext_resource type="PackedScene" uid="uid://baqppssb4bn6c" path="res://Scene/change_scenes_door.tscn" id="10_7rwu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nn86"]
 texture = ExtResource("1_tale4")
@@ -291,6 +292,10 @@ position = Vector2(529, -19)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1765268492]
 position = Vector2(31, 16)
 shape = SubResource("WorldBoundaryShape2D_ir14n")
+
+[node name="change_scenes_door" parent="." unique_id=941921634 instance=ExtResource("10_7rwu0")]
+position = Vector2(548, -165)
+scene_direction = "res://Scene/main.tscn"
 
 [editable path="pnj/start_pnj"]
 [editable path="pnj/start_pnj/pnj_static_text_ui"]

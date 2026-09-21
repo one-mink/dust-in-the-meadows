@@ -4,7 +4,7 @@ extends StaticBody2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 var is_on_zone = false
 var door_state =  "clossed"
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and is_on_zone:
 		if door_state == "clossed":
 			door_state = "open"
