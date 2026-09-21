@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dqvxrln5dw76e"]
+
+[ext_resource type="Script" uid="uid://dkn1084olg6pw" path="res://Script/dynamite.gd" id="1_l8yf0"]
+[ext_resource type="Texture2D" uid="uid://c1s3jpuq3x43e" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_qsslr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8yf0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8yf0"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07m4o"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcn1s"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsv4b"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp2in"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33kd3"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wlc5"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ufe"]
+atlas = ExtResource("1_qsslr")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnoby"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8yf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07m4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcn1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsv4b")
+}],
+"loop": 1,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp2in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33kd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wlc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ufe")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kq6tp"]
+radius = 28.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=285182078]
+script = ExtResource("1_l8yf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2064519164]
+shape = SubResource("RectangleShape2D_l8yf0")
+
+[node name="FuzeTimer" type="Timer" parent="." unique_id=1626452868]
+wait_time = 5.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=762287373]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_hnoby")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.74974567
+
+[node name="explode_area" type="Area2D" parent="." unique_id=1810569025]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explode_area" unique_id=404913853]
+shape = SubResource("CircleShape2D_kq6tp")
+
+[connection signal="timeout" from="FuzeTimer" to="." method="_on_fuze_timer_timeout"]
+[connection signal="body_entered" from="explode_area" to="." method="_on_explode_area_body_entered"]
+[connection signal="body_exited" from="explode_area" to="." method="_on_explode_area_body_exited"]

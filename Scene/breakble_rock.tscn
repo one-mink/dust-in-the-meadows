@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://neebwfnrc4dl"]
+
+[ext_resource type="Script" uid="uid://ci0estat8e4o6" path="res://Script/breakble_rock.gd" id="1_prqp1"]
+[ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_2bd3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir14n"]
+size = Vector2(16, 16)
+
+[node name="breakble_rock" type="StaticBody2D" unique_id=202679547]
+script = ExtResource("1_prqp1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=787900292]
+shape = SubResource("RectangleShape2D_ir14n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1423479800]
+position = Vector2(0, 0.25)
+scale = Vector2(1, 1.0333333)
+texture = ExtResource("2_2bd3w")
+region_enabled = true
+region_rect = Rect2(128.04178, 15.78784, 16.445023, 15.340197)

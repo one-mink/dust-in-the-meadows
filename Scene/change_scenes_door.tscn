@@ -3,19 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_b7b1k"]
 [ext_resource type="Script" uid="uid://w802y6gslap7" path="res://Script/change_scenes_door.gd" id="1_m1vsf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m1vsf"]
-atlas = ExtResource("1_b7b1k")
-region = Rect2(16, 210, 16, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir14n"]
+size = Vector2(38, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7b1k"]
 atlas = ExtResource("1_b7b1k")
-region = Rect2(0, 210, 32, 42)
+region = Rect2(16, 224, 16, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ir14n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1vsf"]
+atlas = ExtResource("1_b7b1k")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnoby"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m1vsf")
+"texture": SubResource("AtlasTexture_b7b1k")
 }],
 "loop": 1,
 "name": &"closed",
@@ -23,29 +26,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b7b1k")
+"texture": SubResource("AtlasTexture_m1vsf")
 }],
 "loop": 1,
 "name": &"open",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f1t2"]
-size = Vector2(26, 49)
-
-[node name="change_scenes_door" type="StaticBody2D" unique_id=941921634]
+[node name="change_scenes_door" type="StaticBody2D" unique_id=1193649803]
 script = ExtResource("1_m1vsf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=847430748]
-sprite_frames = SubResource("SpriteFrames_ir14n")
-animation = &"closed"
+[node name="Area2D" type="Area2D" parent="." unique_id=2016687492]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2131932138]
+shape = SubResource("RectangleShape2D_ir14n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=684229739]
+sprite_frames = SubResource("SpriteFrames_hnoby")
+animation = &"open"
 autoplay = "closed"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=616022069]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951815018]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_1f1t2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
