@@ -6,15 +6,14 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -550.0
 
 signal item_collected(item)
-
-
-
+@onready var player: Player = $"."
 
 @onready var inv : Inv = preload("res://inventory/playerInventory.tres")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area_collectible: Area2D = $AnimatedSprite2D/Area2D
 
-
+const DYNAMITE_SCENE = preload("res://Scene/dynamite.tscn")
+var throw_x = 200
 var nearby_collectible = null
 
 func collected(item):
@@ -27,6 +26,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	if Input.is_action_just_pressed("throw_dynamite"):
+		throw_dynamite()
 		
 	if Input.is_action_just_pressed("interact") and nearby_collectible:
 		nearby_collectible.collected()
@@ -71,3 +73,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("collectible"):
 		nearby_collectible = null
+
+func throw_dynamite():
+	var dynamite = DYNAMITE_SCENE.instantiate()
+	dynamite.global_position = animated_sprite.global_position
+	get_parent().add_child(dynamite)
+	player.add_collision_exception_with(dynamite)
+	if animated_sprite.flip_h == true:
+		throw_x = -200
+	else:
+		throw_x = 200
+	dynamite.linear_velocity = Vector2(throw_x,-200)

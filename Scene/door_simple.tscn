@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4ud847kwls38"]
 
-[ext_resource type="Script" uid="uid://v3nmnhbcsw0j" path="res://door_simple.gd" id="1_ogkmr"]
+[ext_resource type="Script" uid="uid://v3nmnhbcsw0j" path="res://Script/door_simple.gd" id="1_ogkmr"]
 [ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_cb4cp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnoby"]

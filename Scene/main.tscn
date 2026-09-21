@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cph31nxdbc0yb" path="res://killzone.tscn" id="5_3amdw"]
 [ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="6_p2wc2"]
 [ext_resource type="Script" uid="uid://cyjb0sdov02rf" path="res://Script/game_settings_panel.gd" id="6_v2gmf"]
-[ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://dialogue_ui.gd" id="7_ow1sv"]
+[ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://Script/dialogue_ui.gd" id="7_ow1sv"]
 [ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="8_75buv"]
 [ext_resource type="Script" uid="uid://b5mw3h4vqin71" path="res://Script/quest_ui.gd" id="9_c2iwn"]
 [ext_resource type="Script" uid="uid://do2tdq133c1c8" path="res://Script/tutorial_ui.gd" id="10_3pt4j"]
@@ -557,7 +557,7 @@ position = Vector2(210, 275)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1405980318]
 position = Vector2(49, 2)
-zoom = Vector2(4, 4)
+zoom = Vector2(2.5, 2.5)
 limit_bottom = 400
 limit_smoothed = true
 position_smoothing_enabled = true
