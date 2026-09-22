@@ -338,8 +338,9 @@ text = ["heyyy", "have you heard about", "oh nothing", "in fact everythin still 
 
 [node name="change_scenes_door" parent="door" unique_id=1193649803 instance=ExtResource("7_s7tw1")]
 position = Vector2(0, 128)
-scene_direction = "res://level/lvl1/lvl_1_start.t"
-position_place = Vector2(1806, -368)
+scene_direction = "res://level/lvl1/lvl_1_start.tscn"
+door_id = "1st_house_in"
+target_door_id = "1st_house_out"
 
 [node name="door_simple2" parent="door" unique_id=465107257 instance=ExtResource("6_nb2gj")]
 position = Vector2(88, 123)

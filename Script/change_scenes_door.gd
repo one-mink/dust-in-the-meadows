@@ -2,7 +2,8 @@ extends StaticBody2D
 
 
 @export var scene_direction: String  
-
+@export var door_id : String
+@export var target_door_id : String
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -14,8 +15,10 @@ func _process(_delta: float) -> void:
 		if door_state == "closed":
 			door_state = "open"
 			animated_sprite_2d.play("open")
+			Global.target_door_id = target_door_id
 			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file(scene_direction)
+			
 		else:
 			door_state = "closed"
 			animated_sprite_2d.play("closed")
