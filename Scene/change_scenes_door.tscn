@@ -33,7 +33,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="change_scenes_door" type="StaticBody2D" unique_id=1193649803]
+[node name="change_scenes_door" type="StaticBody2D" unique_id=1193649803 groups=["doors"]]
 script = ExtResource("1_m1vsf")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2016687492]
