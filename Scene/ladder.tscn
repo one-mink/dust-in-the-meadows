@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dci6dbsxpxrlo"]
+
+[ext_resource type="Script" uid="uid://b3plj2dfsjt6m" path="res://Script/ladder.gd" id="1_j7g3j"]
+[ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_hifyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir14n"]
+size = Vector2(16, 15.5)
+
+[node name="Ladder" type="StaticBody2D" unique_id=306251531]
+script = ExtResource("1_j7g3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2090834012]
+position = Vector2(0, 0.50000024)
+scale = Vector2(1, 1.1818181)
+texture = ExtResource("2_hifyj")
+region_enabled = true
+region_rect = Rect2(145.27895, 52.23421, 13.549362, 11.308086)
+
+[node name="interact_area" type="Area2D" parent="." unique_id=276126804]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact_area" unique_id=2004182455]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_ir14n")
+
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]

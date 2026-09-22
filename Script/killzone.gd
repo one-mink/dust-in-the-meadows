@@ -4,8 +4,11 @@ extends Area2D
 
 
 func _on_body_entered(body):
-	print("You died!")
-	timer.start()
+	if body is Player:
+		print("You died!")
+		timer.start()
+	else:
+		body.queue_free
 	
 
 

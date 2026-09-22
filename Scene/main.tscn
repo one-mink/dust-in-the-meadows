@@ -2,12 +2,24 @@
 
 [ext_resource type="Script" uid="uid://juog2hvgmfed" path="res://Scene/main.gd" id="1_1xcnr"]
 [ext_resource type="Texture2D" uid="uid://thksjn3isg8m" path="res://assets/sprites/world_tileset.png" id="1_2wwxx"]
-[ext_resource type="PackedScene" uid="uid://b7ljs70wvy1xh" path="res://Scene/player.tscn" id="2_3amdw"]
+[ext_resource type="PackedScene" uid="uid://hn672ra3a3oh" path="res://Scene/player.tscn" id="2_3amdw"]
 [ext_resource type="PackedScene" uid="uid://cfvbq6e6m0kfr" path="res://Scene/platform.tscn" id="3_1xcnr"]
 [ext_resource type="PackedScene" uid="uid://bcda4jk05grp7" path="res://Scene/coin.tscn" id="4_ow1sv"]
 [ext_resource type="PackedScene" uid="uid://cph31nxdbc0yb" path="res://killzone.tscn" id="5_3amdw"]
-[ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://dialogue_ui.gd" id="7_ow1sv"]
+[ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="6_p2wc2"]
+[ext_resource type="Script" uid="uid://cyjb0sdov02rf" path="res://Script/game_settings_panel.gd" id="6_v2gmf"]
+[ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://Script/dialogue_ui.gd" id="7_ow1sv"]
 [ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="8_75buv"]
+[ext_resource type="Script" uid="uid://b5mw3h4vqin71" path="res://Script/quest_ui.gd" id="9_c2iwn"]
+[ext_resource type="Script" uid="uid://do2tdq133c1c8" path="res://Script/tutorial_ui.gd" id="10_3pt4j"]
+[ext_resource type="PackedScene" uid="uid://bx3h0631j0pku" path="res://Scene/static_pnj_2d.tscn" id="10_3pt4jb"]
+[ext_resource type="PackedScene" uid="uid://nkome1qecchp" path="res://Scene/inv_ui.tscn" id="10_7y4ci"]
+[ext_resource type="PackedScene" uid="uid://s02ub01r3qm1" path="res://Scene/collectible_scenes.tscn" id="11_7y4ci"]
+[ext_resource type="Resource" uid="uid://d2lrbn0o7dynh" path="res://inventory/items/seed.tres" id="13_0sxm5"]
+[ext_resource type="Script" uid="uid://b8qrm2arcxmmb" path="res://Script/save_manager.gd" id="16_jcbur"]
+[ext_resource type="Script" uid="uid://dhwwh6naojqhj" path="res://Script/herbarium_ui.gd" id="17_0y2cb"]
+[ext_resource type="Script" uid="uid://bsuj6212smu3c" path="res://Script/shop_ui.gd" id="18_2ix4a"]
+[ext_resource type="Script" uid="uid://d1pat0dbwvu26" path="res://Script/crafting_ui.gd" id="20_jbas8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("1_2wwxx")
@@ -226,6 +238,10 @@ func show_notification(message: String):
 	
 "
 
+[sub_resource type="GDScript" id="GDScript_p2wc2"]
+script/source = "extends PanelContainer
+"
+
 [node name="game" type="Node" unique_id=424763376]
 script = ExtResource("1_1xcnr")
 
@@ -233,8 +249,6 @@ script = ExtResource("1_1xcnr")
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAOAAYAAQAAAAAAAAAPAAYAAQAAAAAAAAAQAAYAAQAAAAAAAAARAAYAAQAAAAAAAAASAAUAAQAAAAAAAAAWAAYAAQAAAAAAAAAXAAYAAQAAAAAAAAAZAAMAAQAAAAAAAAAaAAMAAQAAAAAAAAAbAAMAAQAAAAAAAAAdAAEAAQAAAAAAAAAeAAEAAQAAAAAAAAAfAAEAAQAAAAAAAAAgAAEAAQAAAAAAAAAeAAIAAQABAAEAAAAiAP7/AQAAAAAAAAAjAP7/AQAAAAAAAAAkAP7/AQAAAAAAAAAlAP7/AQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAQAAQAAAAAAAAAUAAUAAQAAAAAAAAAYAAQAAQAAAAAAAAADAAcAAQABAAAAAAADAAgAAQABAAAAAAADAAkAAQABAAAAAAADAAoAAQABAAAAAAAEAAoAAQABAAAAAAAEAAkAAQABAAAAAAAEAAcAAQABAAAAAAAEAAgAAQABAAAAAAAFAAcAAQABAAAAAAAGAAcAAQABAAAAAAAHAAcAAQABAAAAAAAIAAcAAQABAAAAAAAJAAUAAQABAAAAAAAJAAYAAQABAAAAAAAJAAcAAQABAAAAAAAJAAgAAQABAAAAAAAHAAgAAQABAAAAAAAIAAgAAQABAAAAAAAFAAgAAQABAAAAAAAGAAgAAQABAAAAAAAFAAkAAQABAAAAAAAGAAkAAQABAAAAAAAFAAoAAQABAAAAAAAGAAoAAQABAAAAAAAHAAkAAQABAAAAAAAHAAoAAQABAAAAAAAIAAoAAQABAAAAAAAIAAkAAQABAAAAAAAJAAkAAQABAAAAAAAJAAoAAQABAAAAAAAKAAcAAQABAAAAAAAKAAgAAQABAAAAAAAKAAkAAQABAAAAAAAKAAoAAQABAAAAAAALAAkAAQABAAAAAAALAAoAAQABAAAAAAALAAgAAQABAAAAAAALAAcAAQABAAAAAAAOAAcAAQABAAAAAAAPAAcAAQABAAAAAAAQAAcAAQABAAAAAAARAAcAAQABAAAAAAASAAYAAQABAAAAAAASAAcAAQABAAAAAAASAAgAAQABAAAAAAARAAgAAQAAAAEAAAAQAAgAAQAAAAEAAAAOAAgAAQAAAAEAAAAPAAgAAQAAAAEAAAAOAAkAAQAAAAEAAAAPAAkAAQAAAAEAAAAQAAkAAQAAAAEAAAASAAkAAQAAAAEAAAARAAkAAQAAAAEAAAAOAAoAAQAAAAEAAAAPAAoAAQAAAAEAAAAQAAoAAQAAAAEAAAARAAoAAQAAAAEAAAASAAoAAQAAAAEAAAAUAAYAAQAAAAEAAAAUAAcAAQAAAAEAAAAUAAgAAQAAAAEAAAAUAAkAAQAAAAEAAAAUAAoAAQAAAAEAAAAWAAcAAQAAAAEAAAAXAAcAAQAAAAEAAAAWAAgAAQAAAAEAAAAXAAgAAQAAAAEAAAAWAAkAAQAAAAEAAAAXAAkAAQAAAAEAAAAWAAoAAQAAAAEAAAAXAAoAAQAAAAEAAAAYAAUAAQABAAAAAAAYAAYAAQABAAAAAAAYAAcAAQABAAAAAAAYAAgAAQABAAAAAAAYAAkAAQABAAAAAAAYAAoAAQABAAAAAAAZAAQAAQABAAEAAAAaAAQAAQABAAEAAAAZAAYAAQABAAEAAAAZAAUAAQABAAEAAAAaAAUAAQABAAEAAAAaAAYAAQABAAEAAAAZAAcAAQABAAEAAAAZAAkAAQABAAEAAAAZAAgAAQABAAEAAAAaAAcAAQABAAEAAAAaAAgAAQABAAEAAAAaAAkAAQABAAEAAAAZAAoAAQABAAEAAAAaAAoAAQABAAEAAAAdAAIAAQABAAEAAAAfAAIAAQABAAEAAAAgAAIAAQABAAEAAAAeAAMAAQABAAEAAAAdAAMAAQABAAEAAAAgAAMAAQABAAEAAAAfAAMAAQABAAEAAAAfAAQAAQABAAEAAAAgAAQAAQABAAEAAAAeAAQAAQABAAEAAAAdAAQAAQABAAEAAAAdAAUAAQABAAEAAAAbAAQAAQABAAEAAAAbAAUAAQABAAEAAAAbAAYAAQABAAEAAAAbAAcAAQABAAEAAAAbAAgAAQABAAEAAAAbAAkAAQABAAEAAAAbAAoAAQABAAEAAAAeAAUAAQABAAEAAAAfAAUAAQABAAEAAAAgAAUAAQABAAEAAAAgAAYAAQABAAEAAAAfAAYAAQABAAEAAAAeAAYAAQABAAEAAAAdAAYAAQABAAEAAAAdAAcAAQABAAEAAAAdAAgAAQABAAEAAAAdAAkAAQABAAEAAAAdAAoAAQABAAEAAAAeAAoAAQABAAEAAAAeAAkAAQABAAEAAAAeAAgAAQABAAEAAAAeAAcAAQABAAEAAAAfAAcAAQABAAEAAAAfAAgAAQABAAEAAAAfAAkAAQABAAEAAAAfAAoAAQABAAEAAAAgAAoAAQABAAEAAAAgAAkAAQABAAEAAAAgAAgAAQABAAEAAAAgAAcAAQABAAEAAAAiAP//AQABAAEAAAAiAAAAAQABAAEAAAAiAAEAAQABAAEAAAAiAAIAAQABAAEAAAAiAAMAAQABAAEAAAAiAAQAAQABAAEAAAAiAAUAAQABAAEAAAAiAAYAAQABAAEAAAAiAAcAAQABAAEAAAAiAAgAAQABAAEAAAAiAAkAAQABAAEAAAAiAAoAAQABAAEAAAAjAAoAAQABAAEAAAAkAAoAAQABAAEAAAAlAAoAAQABAAEAAAAlAAkAAQABAAEAAAAlAAgAAQABAAEAAAAlAAcAAQABAAEAAAAlAAYAAQABAAEAAAAlAAUAAQABAAEAAAAlAAQAAQABAAEAAAAlAAMAAQABAAEAAAAlAAIAAQABAAEAAAAlAAEAAQABAAEAAAAlAAAAAQABAAEAAAAkAAAAAQABAAEAAAAlAP//AQABAAEAAAAkAP//AQABAAEAAAAjAP//AQABAAEAAAAjAAAAAQABAAEAAAAkAAEAAQABAAEAAAAkAAIAAQABAAEAAAAkAAMAAQABAAEAAAAkAAQAAQABAAEAAAAkAAcAAQABAAEAAAAkAAgAAQABAAEAAAAkAAYAAQABAAEAAAAkAAUAAQABAAEAAAAjAAUAAQABAAEAAAAjAAYAAQABAAEAAAAjAAcAAQABAAEAAAAjAAgAAQABAAEAAAAjAAkAAQABAAEAAAAkAAkAAQABAAEAAAAjAAQAAQABAAEAAAAjAAMAAQABAAEAAAAjAAIAAQABAAEAAAAjAAEAAQABAAEAAAAvAP7/AQAHAAEAAAAwAP7/AQAHAAEAAAAxAP7/AQAHAAEAAAAvAP//AQAIAAEAAAAvAAAAAQAIAAEAAAAvAAEAAQAIAAEAAAAvAAIAAQAIAAEAAAAwAAIAAQAIAAEAAAAwAAEAAQAIAAEAAAAwAAAAAQAIAAEAAAAwAP//AQAIAAEAAAAxAP//AQAIAAEAAAAxAAAAAQAIAAEAAAAxAAEAAQAIAAEAAAAxAAIAAQAIAAEAAAAxAAMAAQAIAAEAAAAwAAMAAQAIAAEAAAAvAAMAAQAIAAEAAAAvAAQAAQAIAAEAAAAwAAQAAQAIAAEAAAAxAAQAAQAIAAEAAAAQAAUAAQAAAAUAAAAQAAQAAQAAAAMAAAAgAAAAAQABAAgAAAA2AP7/AQAHAAAAAAA3AP7/AQAHAAAAAAA4AP7/AQAHAAAAAAA5AP7/AQAHAAAAAAAyAP7/AQAJAAAAAAAzAP7/AQAKAAAAAAA0AP7/AQALAAAAAAA1AP7/AQAHAAAAAAA6AP//AQAGAAIAAAA7AP//AQAHAAAAAAA7AAAAAQAHAAAAAAA8AAAAAQAHAAAAAAA8AAEAAQAGAAIAAAA9AAEAAQAHAAAAAAA9AAIAAQAHAAAAAAA+AAIAAQAHAAAAAAA+AAMAAQAGAAIAAAA1AP//AQAGAAIAAAA1AAAAAQAGAAIAAAA1AAEAAQAGAAIAAAA1AAIAAQAGAAIAAAA1AAMAAQAGAAIAAAA1AAQAAQAGAAIAAAA1AAUAAQAGAAIAAAA2AAUAAQAGAAIAAAA3AAUAAQAGAAIAAAA4AAQAAQAGAAIAAAA5AAQAAQAGAAIAAAA5AAMAAQAGAAIAAAA5AAIAAQAGAAIAAAA5AAEAAQAGAAIAAAA4AAEAAQAGAAIAAAA4AAAAAQAGAAIAAAA4AP//AQAGAAIAAAA3AP//AQAGAAIAAAA2AP//AQAGAAIAAAA2AAAAAQAGAAIAAAA2AAEAAQAGAAIAAAA2AAIAAQAGAAIAAAA2AAMAAQAGAAIAAAA2AAQAAQAGAAIAAAA3AAQAAQAGAAIAAAA3AAMAAQAGAAIAAAA3AAIAAQAGAAIAAAA3AAEAAQAGAAIAAAA3AAAAAQAGAAIAAAA4AAIAAQAGAAIAAAA4AAMAAQAGAAIAAAA4AAUAAQAGAAIAAAA5AAUAAQAGAAIAAAA6AAQAAQAGAAIAAAA7AAMAAQAGAAIAAAA7AAIAAQAGAAIAAAA6AAEAAQAGAAIAAAA5AAAAAQAGAAIAAAA5AP//AQAGAAIAAAA6AAAAAQAGAAIAAAA7AAEAAQAGAAIAAAA8AAIAAQAGAAIAAAA8AAMAAQAGAAIAAAA9AAMAAQAGAAIAAAA9AAQAAQAGAAIAAAA8AAQAAQAGAAIAAAA7AAQAAQAGAAIAAAA7AAUAAQAGAAIAAAA6AAUAAQAGAAIAAAA6AAYAAQAGAAIAAAA6AAIAAQAGAAIAAAA6AAMAAQAGAAIAAAA5AAYAAQAGAAIAAAA4AAYAAQAGAAIAAAA3AAYAAQAGAAIAAAA2AAYAAQAGAAIAAAA1AAYAAQAGAAIAAAA7AAYAAQAGAAIAAAA8AAUAAQAGAAIAAAA9AAUAAQAGAAIAAAA9AAYAAQAGAAIAAAA8AAYAAQAGAAIAAAA7AAcAAQAGAAIAAAA6AAgAAQAGAAIAAAA6AAkAAQAGAAIAAAA5AAkAAQAGAAIAAAA5AAoAAQAGAAIAAAA4AAoAAQAGAAIAAAA3AAoAAQAGAAIAAAA2AAoAAQAGAAIAAAA1AAoAAQAGAAIAAAA1AAkAAQAGAAIAAAA1AAgAAQAGAAIAAAA1AAcAAQAGAAIAAAA3AAcAAQAGAAIAAAA3AAgAAQAGAAIAAAA4AAgAAQAGAAIAAAA4AAkAAQAGAAIAAAA7AAgAAQAGAAIAAAA8AAcAAQAGAAIAAAA6AAcAAQAGAAIAAAA5AAgAAQAGAAIAAAA5AAcAAQAGAAIAAAA4AAcAAQAGAAIAAAA2AAkAAQAGAAIAAAA3AAkAAQAGAAIAAAA2AAgAAQAGAAIAAAA2AAcAAQAGAAIAAAA8AAgAAQAGAAIAAAA9AAcAAQAGAAIAAAA9AAgAAQAGAAIAAAA8AAkAAQAGAAIAAAA7AAkAAQAGAAIAAAA7AAoAAQAGAAIAAAA6AAoAAQAGAAIAAAA9AAkAAQAGAAIAAAA+AAUAAQAGAAIAAAA+AAQAAQAGAAIAAAA+AAYAAQAGAAIAAAA+AAcAAQAGAAIAAAA+AAgAAQAGAAIAAAA+AAkAAQAGAAIAAAA9AAoAAQAGAAIAAAA8AAoAAQAGAAIAAAA=")
 tile_set = SubResource("TileSet_q28vp")
-
-[node name="Player" parent="." unique_id=1850948386 instance=ExtResource("2_3amdw")]
 
 [node name="killzone" parent="." unique_id=797383513 instance=ExtResource("5_3amdw")]
 
@@ -290,6 +304,7 @@ offset_right = 197.5
 offset_bottom = 100.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu/PauseContainer" unique_id=1844604354]
 layout_mode = 2
@@ -300,10 +315,86 @@ layout_mode = 2
 [node name="Paused" type="Label" parent="PauseMenu/PauseContainer/MarginContainer/VBoxContainer" unique_id=1526100724]
 layout_mode = 2
 
+[node name="Settings" type="Button" parent="PauseMenu/PauseContainer/MarginContainer/VBoxContainer" unique_id=972266995]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="PauseMenu/PauseContainer/MarginContainer/VBoxContainer" unique_id=271292710]
+layout_mode = 2
+text = "Quit"
+
 [node name="Resume" type="Button" parent="PauseMenu/PauseContainer/MarginContainer/VBoxContainer" unique_id=1541857982]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Resume"
+
+[node name="GameSettingsPanel" type="PanelContainer" parent="PauseMenu" unique_id=141872106]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -99.0
+offset_right = 199.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
+script = ExtResource("6_v2gmf")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/GameSettingsPanel" unique_id=2113463820]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/GameSettingsPanel/MarginContainer" unique_id=92153563]
+layout_mode = 2
+
+[node name="GameBackButton" type="Button" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=711697024]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.8745098, 0.13333334, 0.08627451, 1)
+theme_override_font_sizes/font_size = 18
+text = "BACK"
+
+[node name="Label" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=693844199]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS"
+
+[node name="Volume" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=385432992]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "Volume"
+
+[node name="GameHSlider" type="HSlider" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=550916583]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="FullScreen" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=102756949]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "FullScreen"
+
+[node name="GameCheckBox" type="CheckBox" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1694887092]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1472188330]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "Dark Mode"
+
+[node name="GameCheckButton" type="CheckButton" parent="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=826780517]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="DialogueUI" type="CanvasLayer" parent="." unique_id=1471719379]
 visible = false
@@ -332,12 +423,14 @@ layout_mode = 2
 [node name="NameLabel" type="Label" parent="DialogueUI/DialogueBox/MarginContainer/VBoxContainer" unique_id=592772171]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "huge"
 
 [node name="TextLabel" type="Label" parent="DialogueUI/DialogueBox/MarginContainer/VBoxContainer" unique_id=98665671]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
 text = "on a sunny morning hugo got out of his camper to go and find resources to provide for his family"
 autowrap_mode = 2
 
@@ -368,6 +461,7 @@ layout_mode = 2
 [node name="NotificationLabel" type="Label" parent="NotificationUI/NotificationBox/MarginContainer" unique_id=589182794]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Picked a Flower"
 script = SubResource("GDScript_c2iwn")
 
@@ -375,7 +469,291 @@ script = SubResource("GDScript_c2iwn")
 wait_time = 2.0
 one_shot = true
 
+[node name="QuestUI" type="CanvasLayer" parent="." unique_id=1379699824]
+script = ExtResource("9_c2iwn")
+
+[node name="QuestPanel" type="PanelContainer" parent="QuestUI" unique_id=1344321746]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -252.0
+offset_bottom = 394.0
+grow_horizontal = 0
+theme_override_styles/panel = ExtResource("6_p2wc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="QuestUI/QuestPanel" unique_id=271903798]
+layout_mode = 2
+
+[node name="QuestList" type="VBoxContainer" parent="QuestUI/QuestPanel/MarginContainer" unique_id=462498546]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuestButton" type="Button" parent="QuestUI" unique_id=275287344]
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 9.0
+offset_right = -19.0
+offset_bottom = 57.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.078431375, 0.58431375, 1)
+theme_override_font_sizes/font_size = 25
+text = "Q"
+icon_alignment = 1
+
+[node name="TutorialUI" type="CanvasLayer" parent="." unique_id=1856518266]
+script = ExtResource("10_3pt4j")
+
+[node name="TutorialPanel" type="PanelContainer" parent="TutorialUI" unique_id=731193735]
+unique_name_in_owner = true
+offset_right = 450.0
+offset_bottom = 332.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialUI/TutorialPanel" unique_id=842079439]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialUI/TutorialPanel/MarginContainer" unique_id=313128876]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=760551646]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "How to Play"
+
+[node name="Tutorialtext" type="Label" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=1294074846]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "WASD or Arrow Keys — Move
+Space — Jump
+E — Interact/ Inventory
+Esc — Pause"
+autowrap_mode = 3
+
+[node name="GotIt" type="Button" parent="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer" unique_id=1874723532]
+layout_mode = 2
+text = "Got It"
+
+[node name="TutorialButton" type="Button" parent="TutorialUI" unique_id=932048351]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(48, 48)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 28
+text = "?"
+autowrap_mode = 3
+
+[node name="Static_pnj2D" parent="." unique_id=1424772830 instance=ExtResource("10_3pt4jb")]
+position = Vector2(357, 288)
+text = ["hehdhdhdhdhdhdh"]
+
+[node name="Player" parent="." unique_id=2083495719 instance=ExtResource("2_3amdw")]
+position = Vector2(210, 275)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1405980318]
+position = Vector2(49, 2)
+zoom = Vector2(2.5, 2.5)
+limit_bottom = 400
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_horizontal_offset = 0.14
+drag_left_margin = 0.45
+drag_top_margin = 0.45
+drag_right_margin = 0.48
+drag_bottom_margin = 0.41
+
+[node name="inv_ui_cnv" type="CanvasLayer" parent="." unique_id=1780400905]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="inv_ui" parent="inv_ui_cnv" unique_id=1085945026 instance=ExtResource("10_7y4ci")]
+offset_left = 0.25
+offset_top = 130.5
+offset_right = 61.75
+offset_bottom = 190.0
+
+[node name="collectible" parent="." unique_id=234885741 instance=ExtResource("11_7y4ci")]
+position = Vector2(259, 281)
+item = ExtResource("13_0sxm5")
+
+[node name="collectible2" parent="." unique_id=1285345161 instance=ExtResource("11_7y4ci")]
+position = Vector2(281, 281)
+item = ExtResource("13_0sxm5")
+
+[node name="SaveManager" type="Node" parent="." unique_id=390463305]
+script = ExtResource("16_jcbur")
+
+[node name="HerbariumUI" type="CanvasLayer" parent="." unique_id=1854437422]
+unique_name_in_owner = true
+script = ExtResource("17_0y2cb")
+
+[node name="HerbariumPanel" type="PanelContainer" parent="HerbariumUI" unique_id=470688964]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -177.5
+offset_right = 224.0
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="HerbariumUI/HerbariumPanel" unique_id=670793932]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HerbariumUI/HerbariumPanel/MarginContainer" unique_id=685321594]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HerbariumUI/HerbariumPanel/MarginContainer/VBoxContainer" unique_id=595765951]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Herbarium"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HerbariumUI/HerbariumPanel/MarginContainer/VBoxContainer" unique_id=1252770507]
+layout_mode = 2
+
+[node name="HerbariumList" type="VBoxContainer" parent="HerbariumUI/HerbariumPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=79972831]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HerbariumButton" type="Button" parent="HerbariumUI" unique_id=984513017]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1088.0
+offset_top = 71.0
+offset_right = 1139.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0.42874372, 0.9073059, 0.21639848, 1)
+theme_override_font_sizes/font_size = 24
+text = "H"
+autowrap_mode = 3
+
+[node name="ShopUI" type="CanvasLayer" parent="." unique_id=82170448]
+unique_name_in_owner = true
+script = ExtResource("18_2ix4a")
+
+[node name="ShopPanel" type="PanelContainer" parent="ShopUI" unique_id=1346583713]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -121.0
+offset_right = 215.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopUI/ShopPanel" unique_id=1884691958]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopUI/ShopPanel/MarginContainer" unique_id=1848820944]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=1625961860]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+theme_override_font_sizes/font_size = 18
+text = "SHOP"
+
+[node name="CoinLabel" type="Label" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=589450530]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Coins:0"
+
+[node name="ShopList" type="VBoxContainer" parent="ShopUI/ShopPanel/MarginContainer/VBoxContainer" unique_id=1118872688]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShopButton" type="Button" parent="ShopUI" unique_id=1073425013]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1091.0
+offset_top = 133.0
+offset_right = 1139.0
+offset_bottom = 181.0
+theme_override_font_sizes/font_size = 28
+text = "🛒"
+
+[node name="CraftingUI" type="CanvasLayer" parent="." unique_id=632001989]
+script = ExtResource("20_jbas8")
+
+[node name="CraftingPanel" type="PanelContainer" parent="CraftingUI" unique_id=1308473113]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.5
+offset_top = -180.0
+offset_right = 224.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_p2wc2")
+script = SubResource("GDScript_p2wc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CraftingUI/CraftingPanel" unique_id=175227691]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingUI/CraftingPanel/MarginContainer" unique_id=142673558]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CraftingUI/CraftingPanel/MarginContainer/VBoxContainer" unique_id=744808884]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.022749474, 0.017658502, 0.025420642, 1)
+theme_override_font_sizes/font_size = 20
+text = "Crafting"
+horizontal_alignment = 1
+
+[node name="CraftingList" type="VBoxContainer" parent="CraftingUI/CraftingPanel/MarginContainer/VBoxContainer" unique_id=483033385]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CraftingButton" type="Button" parent="CraftingUI" unique_id=2120644324]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1091.0
+offset_top = 194.0
+offset_right = 1139.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 31
+text = "C"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1535608556]
+
+[connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameBackButton" to="." method="_on_game_back_button_pressed"]
+[connection signal="pressed" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameBackButton" to="PauseMenu/GameSettingsPanel" method="_on_game_back_button_pressed"]
+[connection signal="value_changed" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameHSlider" to="PauseMenu/GameSettingsPanel" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameCheckBox" to="PauseMenu/GameSettingsPanel" method="_on_check_box_toggled"]
+[connection signal="toggled" from="PauseMenu/GameSettingsPanel/MarginContainer/VBoxContainer/GameCheckButton" to="PauseMenu/GameSettingsPanel" method="_on_theme_toggle_toggled"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="DialogueUI/ContinueButton" to="DialogueUI" method="_on_continue_button_pressed"]
 [connection signal="timeout" from="NotificationUI/HideTimer" to="NotificationUI" method="_on_hide_timer_timeout"]
+[connection signal="pressed" from="QuestUI/QuestButton" to="QuestUI" method="_on_quest_button_pressed"]
+[connection signal="pressed" from="TutorialUI/TutorialPanel/MarginContainer/VBoxContainer/GotIt" to="TutorialUI" method="_on_got_it_pressed"]
+[connection signal="pressed" from="TutorialUI/TutorialButton" to="TutorialUI" method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="HerbariumUI/HerbariumButton" to="HerbariumUI" method="_on_herbarium_button_pressed"]
+[connection signal="pressed" from="ShopUI/ShopButton" to="ShopUI" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="CraftingUI/CraftingButton" to="CraftingUI" method="_on_crafting_button_pressed"]
+
+[editable path="Static_pnj2D"]
+[editable path="Static_pnj2D/pnj_static_text_ui"]

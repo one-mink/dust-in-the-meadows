@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://8yavkv8gluti"]
+
+[ext_resource type="Script" uid="uid://bgdfy2swsoims" path="res://inventory/items/inventory_item.gd" id="1_l2o0h"]
+[ext_resource type="Texture2D" uid="uid://hkorww0wuak5" path="res://assets/sprites/seed_asset_prototype.png" id="2_l0g3w"]
+
+[resource]
+script = ExtResource("1_l2o0h")
+name = "white flower"
+texture = ExtResource("2_l0g3w")
+description = "A beautiful moonlight white flower"

@@ -7,5 +7,5 @@ func show_notification(message: String):
 	$HideTimer.start()
 
 func _on_hide_timer_timeout() -> void:
-	visible = false
-	%NotificationBox.visible = false
+	visible = false;
+	%NotificationBox.visible = false;

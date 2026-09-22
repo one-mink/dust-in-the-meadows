@@ -1,5 +1,9 @@
 extends Area2D
 
+signal coin_collected
+
 func _on_body_entered(body):
-	print("+1 coin!")
-	queue_free()
+	if body is Player:
+		print("+1 coin!")
+		coin_collected.emit()
+		queue_free()
