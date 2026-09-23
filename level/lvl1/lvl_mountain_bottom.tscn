@@ -1,0 +1,239 @@
+[gd_scene format=4 uid="uid://ppxi2yoo7qy1"]
+
+[ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_ne7o4"]
+[ext_resource type="PackedScene" uid="uid://baqppssb4bn6c" path="res://Scene/change_scenes_door.tscn" id="2_0m5cf"]
+[ext_resource type="PackedScene" uid="uid://neebwfnrc4dl" path="res://Scene/breakble_rock.tscn" id="3_rj713"]
+[ext_resource type="PackedScene" uid="uid://bx3h0631j0pku" path="res://Scene/static_pnj_2d.tscn" id="4_rj713"]
+[ext_resource type="PackedScene" uid="uid://bcda4jk05grp7" path="res://Scene/coin.tscn" id="5_o08sn"]
+[ext_resource type="PackedScene" uid="uid://hn672ra3a3oh" path="res://Scene/player.tscn" id="6_o08sn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o08sn"]
+texture = ExtResource("1_ne7o4")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ir14n"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_o08sn")
+
+[node name="lvl_mountain_bottom" type="Node" unique_id=1804198402]
+
+[node name="tiles" type="Node2D" parent="." unique_id=898093922]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="tiles" unique_id=1381900384]
+tile_map_data = PackedByteArray("AAD9/wAAAAAGAAEAAAAHAAAAAAAGAAEAAAAGAAAAAAAGAAEAAAAFAAAAAAAGAAEAAAAEAAAAAAAGAAEAAAADAAAAAAAGAAEAAAACAAAAAAAGAAEAAAABAAAAAAAGAAEAAAAAAAAAAAAGAAEAAAD//wAAAAAGAAEAAAD+/wAAAAAGAAEAAAD8/wAAAAAGAAEAAAD7/wAAAAAGAAEAAAD6/wAAAAAGAAEAAAAIAAAAAAAGAAEAAAD5/wAAAAAGAAEAAAAJAAAAAAAGAAEAAAAKAAAAAAAGAAEAAAALAAAAAAAGAAEAAAD4/wAAAAAGAAEAAAD3/wAAAAAGAAEAAAD2/wAAAAAGAAEAAAD1/wAAAAAGAAEAAAD0/wAAAAAGAAEAAAD0////AAAGAAEAAAD0//7/AAAGAAEAAAD0//3/AAAGAAEAAAD0//z/AAAGAAEAAAD0//v/AAAGAAEAAAD0//r/AAAGAAEAAAD0//n/AAAGAAEAAAD0//j/AAAGAAEAAAD0//f/AAAGAAEAAAD0//b/AAAGAAEAAAD1//X/AAAGAAEAAAD3//T/AAAGAAEAAAD4//T/AAAGAAEAAAD5//T/AAAGAAEAAAD6//T/AAAGAAEAAAD7//T/AAAGAAEAAAD2//T/AAAGAAEAAAALAP//AAAGAAEAAAALAP7/AAAGAAEAAAALAP3/AAAGAAEAAAALAPz/AAAGAAEAAAALAPv/AAAGAAEAAAALAPr/AAAGAAEAAAALAPn/AAAGAAEAAAALAPb/AAAGAAEAAAALAPf/AAAGAAEAAAALAPj/AAAGAAEAAAAKAPX/AAAGAAEAAAAJAPT/AAAGAAEAAAAIAPT/AAAGAAEAAAAHAPT/AAAGAAEAAAAGAPT/AAAGAAEAAAAFAPT/AAAGAAEAAAAEAPT/AAAGAAEAAAADAPT/AAAGAAEAAAACAPT/AAAGAAEAAAABAPT/AAAGAAEAAAAAAPT/AAAGAAEAAAD///T/AAAGAAEAAAD+//T/AAAGAAEAAAD9//T/AAAGAAEAAAD8//T/AAAGAAEAAAAGAP3/AAAGAAEAAAAFAP3/AAAGAAEAAAACAPv/AAAGAAEAAAABAPv/AAAGAAEAAAAAAPv/AAAGAAEAAAD///v/AAAGAAEAAAADAPv/AAAGAAEAAAD1//z/AAAGAAEAAAD2//z/AAAGAAEAAAD3//z/AAAGAAEAAAD4//z/AAAGAAEAAAD5//z/AAAGAAEAAAD6//z/AAAGAAEAAAD7//z/AAAGAAEAAAAJAP7/AAAGAAEAAAAKAP7/AAAGAAEAAAA=")
+tile_set = SubResource("TileSet_ir14n")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1929725612]
+position = Vector2(0, -92)
+zoom = Vector2(3, 3)
+
+[node name="change_scenes_door" parent="." unique_id=1193649803 instance=ExtResource("2_0m5cf")]
+position = Vector2(-132, -16)
+scene_direction = "res://level/lvl1/lvl_1_start.tscn"
+door_id = "lvl_mountain_bottom_out"
+target_door_id = "lvl_mountain_bottom_in"
+
+[node name="breakble" type="Node" parent="." unique_id=1421339704]
+
+[node name="breakble_rock4" parent="breakble" unique_id=437039378 instance=ExtResource("3_rj713")]
+position = Vector2(-56, -8)
+
+[node name="breakble_rock5" parent="breakble" unique_id=451733995 instance=ExtResource("3_rj713")]
+position = Vector2(-40, -8)
+
+[node name="breakble_rock6" parent="breakble" unique_id=1270873366 instance=ExtResource("3_rj713")]
+position = Vector2(-9, -8)
+
+[node name="breakble_rock8" parent="breakble" unique_id=1619482500 instance=ExtResource("3_rj713")]
+position = Vector2(-71, -72)
+
+[node name="breakble_rock9" parent="breakble" unique_id=2083655857 instance=ExtResource("3_rj713")]
+position = Vector2(12, -8)
+
+[node name="breakble_rock10" parent="breakble" unique_id=298646974 instance=ExtResource("3_rj713")]
+position = Vector2(-88, -8)
+
+[node name="breakble_rock7" parent="breakble" unique_id=328775531 instance=ExtResource("3_rj713")]
+position = Vector2(-49, -15)
+
+[node name="breakble_rock11" parent="breakble" unique_id=1640356524 instance=ExtResource("3_rj713")]
+position = Vector2(-56, -24)
+
+[node name="breakble_rock12" parent="breakble" unique_id=1909120055 instance=ExtResource("3_rj713")]
+position = Vector2(-66, -33)
+
+[node name="breakble_rock13" parent="breakble" unique_id=1196530346 instance=ExtResource("3_rj713")]
+position = Vector2(-56, -40)
+
+[node name="breakble_rock" parent="breakble" unique_id=202679547 instance=ExtResource("3_rj713")]
+position = Vector2(-72, -40)
+
+[node name="breakble_rock2" parent="breakble" unique_id=17735729 instance=ExtResource("3_rj713")]
+position = Vector2(-72, -24)
+
+[node name="breakble_rock3" parent="breakble" unique_id=1112985234 instance=ExtResource("3_rj713")]
+position = Vector2(-72, -8)
+
+[node name="Static_pnj2D" parent="." unique_id=1424772830 instance=ExtResource("4_rj713")]
+position = Vector2(-139, -63)
+text = ["heyyy thank !", "i was stuck here too long", "i go stuck by the rock !", "let me give you a gift", "have you heard about the secret key?the"]
+
+[node name="coins" type="Node" parent="." unique_id=637075757]
+
+[node name="Coin3" parent="." unique_id=1288973538 instance=ExtResource("5_o08sn")]
+position = Vector2(-60, -79)
+
+[node name="player" parent="." unique_id=2083495719 instance=ExtResource("6_o08sn")]
+position = Vector2(-139, -13)
