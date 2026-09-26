@@ -13,9 +13,9 @@
 [ext_resource type="Script" uid="uid://b5mw3h4vqin71" path="res://Script/quest_ui.gd" id="9_c2iwn"]
 [ext_resource type="Script" uid="uid://do2tdq133c1c8" path="res://Script/tutorial_ui.gd" id="10_3pt4j"]
 [ext_resource type="PackedScene" uid="uid://bx3h0631j0pku" path="res://Scene/static_pnj_2d.tscn" id="10_3pt4jb"]
-[ext_resource type="PackedScene" uid="uid://nkome1qecchp" path="res://Scene/inv_ui.tscn" id="10_7y4ci"]
 [ext_resource type="PackedScene" uid="uid://s02ub01r3qm1" path="res://Scene/collectible_scenes.tscn" id="11_7y4ci"]
 [ext_resource type="Resource" uid="uid://d2lrbn0o7dynh" path="res://inventory/items/seed.tres" id="13_0sxm5"]
+[ext_resource type="PackedScene" uid="uid://bjwma1owodvkj" path="res://inventory 2.0/item/flower_1_item.tscn" id="14_p4j74"]
 [ext_resource type="Script" uid="uid://b8qrm2arcxmmb" path="res://Script/save_manager.gd" id="16_jcbur"]
 [ext_resource type="Script" uid="uid://dhwwh6naojqhj" path="res://Script/herbarium_ui.gd" id="17_0y2cb"]
 [ext_resource type="Script" uid="uid://bsuj6212smu3c" path="res://Script/shop_ui.gd" id="18_2ix4a"]
@@ -568,15 +568,8 @@ drag_top_margin = 0.45
 drag_right_margin = 0.48
 drag_bottom_margin = 0.41
 
-[node name="inv_ui_cnv" type="CanvasLayer" parent="." unique_id=1780400905]
-scale = Vector2(4, 4)
-transform = Transform2D(4, 0, 0, 4, 0, 0)
-
-[node name="inv_ui" parent="inv_ui_cnv" unique_id=1085945026 instance=ExtResource("10_7y4ci")]
-offset_left = 0.25
-offset_top = 130.5
-offset_right = 61.75
-offset_bottom = 190.0
+[node name="flower_1_item" parent="." unique_id=423027946 instance=ExtResource("14_p4j74")]
+position = Vector2(320, 281)
 
 [node name="collectible" parent="." unique_id=234885741 instance=ExtResource("11_7y4ci")]
 position = Vector2(259, 281)
@@ -734,8 +727,6 @@ offset_right = 1139.0
 offset_bottom = 252.0
 theme_override_font_sizes/font_size = 31
 text = "C"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1535608556]
 
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

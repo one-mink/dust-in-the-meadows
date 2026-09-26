@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bkq2mixhe24ib"]
+
+[ext_resource type="Script" uid="uid://ccdtscrr4pdh8" path="res://inventory 2.0/inventorySlot.gd" id="1_67sit"]
+[ext_resource type="Texture2D" uid="uid://eq2u4fcphwq2" path="res://brackeys_platformer_assets/brackeys_platformer_assets/New Piskel-1.png.png" id="2_gh404"]
+
+[node name="inventorySlot" type="CenterContainer" unique_id=863074221]
+offset_right = 90.0
+offset_bottom = 83.0
+script = ExtResource("1_67sit")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=797190789]
+layout_mode = 2
+texture_normal = ExtResource("2_gh404")
+
+[connection signal="gui_input" from="TextureButton" to="." method="_on_texture_button_gui_input"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]

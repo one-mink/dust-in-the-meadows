@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://hw0vdo7q0vs7"]
+
+[ext_resource type="Script" uid="uid://cffhgyrpouuba" path="res://tooltip.gd" id="1_gs5sw"]
+
+[node name="Tooltip" type="ColorRect" unique_id=1293637181]
+offset_right = 49.0
+offset_bottom = 9.0
+color = Color(0.012617188, 0.012617188, 0, 0.5764706)
+script = ExtResource("1_gs5sw")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1655967839]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1083893676]
+layout_mode = 2

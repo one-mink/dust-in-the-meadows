@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjwma1owodvkj"]
+
+[ext_resource type="Script" uid="uid://y4xur242ibhv" path="res://inventory 2.0/item/inventory_item.gd" id="1_eh0n0"]
+[ext_resource type="Texture2D" uid="uid://byq2faa24no7h" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/future_flower.png" id="2_oy2h5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnoby"]
+
+[node name="flower_1_item" type="Area2D" unique_id=423027946]
+script = ExtResource("1_eh0n0")
+item_name = "flower_1"
+icon = ExtResource("2_oy2h5")
+is_stackable = true
+description = "the prototype the st graal"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2087018510]
+texture = ExtResource("2_oy2h5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1736562483]
+shape = SubResource("CircleShape2D_hnoby")
