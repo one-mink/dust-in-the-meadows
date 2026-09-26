@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://d2lrbn0o7dynh"]
-
-[ext_resource type="Script" uid="uid://bgdfy2swsoims" path="res://inventory/items/inventory_item.gd" id="1_ching"]
-[ext_resource type="Texture2D" uid="uid://hkorww0wuak5" path="res://assets/sprites/seed_asset_prototype.png" id="2_6jyls"]
-
-[resource]
-script = ExtResource("1_ching")
-name = "White Flower"
-texture = ExtResource("2_6jyls")

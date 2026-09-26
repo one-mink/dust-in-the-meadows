@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://baqppssb4bn6c" path="res://Scene/change_scenes_door.tscn" id="2_sow26"]
 [ext_resource type="PackedScene" uid="uid://b4ud847kwls38" path="res://Scene/door_simple.tscn" id="3_sow26"]
 [ext_resource type="PackedScene" uid="uid://bcda4jk05grp7" path="res://Scene/coin.tscn" id="4_g3ax3"]
-[ext_resource type="PackedScene" uid="uid://s02ub01r3qm1" path="res://Scene/collectible_scenes.tscn" id="5_w77gj"]
+[ext_resource type="PackedScene" uid="uid://bjwma1owodvkj" path="res://inventory 2.0/item/flower_1_item.tscn" id="6_t7c57"]
 [ext_resource type="PackedScene" uid="uid://hn672ra3a3oh" path="res://Scene/player.tscn" id="6_w77gj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptbn7"]
@@ -197,12 +197,12 @@ position = Vector2(128, -1)
 
 [node name="collectible" type="Node" parent="." unique_id=1285870569]
 
-[node name="collectible" parent="collectible" unique_id=234885741 instance=ExtResource("5_w77gj")]
-position = Vector2(199, -23)
-
 [node name="player" parent="." unique_id=2083495719 instance=ExtResource("6_w77gj")]
 position = Vector2(-6, -13)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=771242646]
 position = Vector2(80, -91)
 zoom = Vector2(3, 3)
+
+[node name="flower_1_item" parent="." unique_id=423027946 instance=ExtResource("6_t7c57")]
+position = Vector2(199, -24)
