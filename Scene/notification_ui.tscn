@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dh51jg2pppr53"]
+
+[ext_resource type="Script" uid="uid://btpkv0mo0l67e" path="res://Script/notification_ui.gd" id="1_y7f84"]
+
+[sub_resource type="GDScript" id="GDScript_c2iwn"]
+script/source = "extends Label
+func show_notification(message: String): 
+	%NotificationLabel.text = message; 
+	visible = true; 
+	%NotificationBox.visible = true; 
+	$HideTimer.start()
+	
+"
+
+[node name="NotificationUI" type="CanvasLayer" unique_id=1936451328]
+visible = false
+script = ExtResource("1_y7f84")
+
+[node name="NotificationBox" type="PanelContainer" parent="." unique_id=453467227]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NotificationBox" unique_id=1298945177]
+layout_mode = 2
+
+[node name="NotificationLabel" type="Label" parent="NotificationBox/MarginContainer" unique_id=518224882]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Picked a Flower"
+script = SubResource("GDScript_c2iwn")
+
+[node name="HideTimer" type="Timer" parent="." unique_id=1207237686]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="HideTimer" to="." method="_on_hide_timer_timeout"]

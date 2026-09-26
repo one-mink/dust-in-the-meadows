@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cmbtxfu0olv60"]
+
+[ext_resource type="Script" uid="uid://d1pat0dbwvu26" path="res://Script/crafting_ui.gd" id="1_8hur3"]
+[ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="2_0ycwg"]
+
+[sub_resource type="GDScript" id="GDScript_p2wc2"]
+script/source = "extends PanelContainer
+"
+
+[node name="CraftingUI" type="CanvasLayer" unique_id=978332299]
+script = ExtResource("1_8hur3")
+
+[node name="CraftingPanel" type="PanelContainer" parent="." unique_id=364168544]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.5
+offset_top = -180.0
+offset_right = 224.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_0ycwg")
+script = SubResource("GDScript_p2wc2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CraftingPanel" unique_id=1657928578]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingPanel/MarginContainer" unique_id=973945796]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CraftingPanel/MarginContainer/VBoxContainer" unique_id=885476461]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.022749474, 0.017658502, 0.025420642, 1)
+theme_override_font_sizes/font_size = 20
+text = "Crafting"
+horizontal_alignment = 1
+
+[node name="CraftingList" type="VBoxContainer" parent="CraftingPanel/MarginContainer/VBoxContainer" unique_id=7486264]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CraftingButton" type="Button" parent="." unique_id=1758427059]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1091.0
+offset_top = 194.0
+offset_right = 1139.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 31
+text = "C"
+
+[connection signal="pressed" from="CraftingButton" to="." method="_on_crafting_button_pressed"]

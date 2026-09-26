@@ -52,6 +52,7 @@ func _on_craft_pressed(recipe: Dictionary) -> void:
 	inv.update.emit()
 
 	notif.show_notification("Crafted " + recipe["name"] + "!")
+	get_tree().current_scene.get_node("AchievementManager").unlock("first_craft", "Master Crafter!")
 
 func _find_slot(inv, item_name: String):
 	for slot in inv.slots:

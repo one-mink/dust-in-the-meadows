@@ -13,6 +13,7 @@ func complete_quest(title: String) -> void:
 	for quest in quests:
 		if quest["title"] == title:
 			quest["completed"] = true
+			get_tree().current_scene.get_node("AchievementManager").unlock("first_quest", "Quest Complete!")
 	_refresh_quest_list()
 
 func _refresh_quest_list() -> void:

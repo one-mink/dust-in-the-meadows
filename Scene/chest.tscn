@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://khgrag6413do"]
+
+[ext_resource type="Script" uid="uid://c5mt2npsh6prb" path="res://Script/chest.gd" id="1_gw8v6"]
+[ext_resource type="Texture2D" uid="uid://c7boy73cqbmb4" path="res://Key Assets/gold chest.png" id="1_if2wm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gw8v6"]
+radius = 12.165525
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imxax"]
+size = Vector2(72, 58)
+
+[node name="Chest" type="StaticBody2D" unique_id=83123174]
+script = ExtResource("1_gw8v6")
+
+[node name="GoldChest" type="Sprite2D" parent="." unique_id=314942605]
+unique_name_in_owner = true
+position = Vector2(4.5000005, -4)
+scale = Vector2(0.05375, 0.0525)
+texture = ExtResource("1_if2wm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295693178]
+shape = SubResource("CircleShape2D_gw8v6")
+
+[node name="InteractZone" type="Area2D" parent="." unique_id=1960491987]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone" unique_id=129161867]
+position = Vector2(5, -5)
+shape = SubResource("RectangleShape2D_imxax")
+
+[connection signal="body_entered" from="InteractZone" to="." method="_on_zone_enter"]
+[connection signal="body_exited" from="InteractZone" to="." method="_on_zone_exit"]

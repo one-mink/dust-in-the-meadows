@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dwjel4jenhovs"]
+
+[ext_resource type="Script" uid="uid://bsuj6212smu3c" path="res://Script/shop_ui.gd" id="1_3oxqd"]
+[ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="2_6vupn"]
+
+[node name="ShopUI" type="CanvasLayer" unique_id=1681652565]
+unique_name_in_owner = true
+script = ExtResource("1_3oxqd")
+
+[node name="ShopPanel" type="PanelContainer" parent="." unique_id=1264470534]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -121.0
+offset_right = 215.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_6vupn")
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopPanel" unique_id=1171543210]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel/MarginContainer" unique_id=1266874258]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=1424041002]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+theme_override_font_sizes/font_size = 18
+text = "SHOP"
+
+[node name="CoinLabel" type="Label" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=451804473]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Coins:0"
+
+[node name="ShopList" type="VBoxContainer" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=257688583]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShopButton" type="Button" parent="." unique_id=847605594]
+custom_minimum_size = Vector2(48, 48)
+offset_left = 1091.0
+offset_top = 133.0
+offset_right = 1139.0
+offset_bottom = 181.0
+theme_override_font_sizes/font_size = 28
+text = "🛒"
+
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]

@@ -43,6 +43,7 @@ func _on_buy_pressed(shop_item:Dictionary) -> void:
 		coins -= shop_item["price"]
 		_update_coins_label()
 		notif.show_notification("Bought " + shop_item["name"] + "!")
+		get_tree().current_scene.get_node("AchievementManager").unlock("first_purchase", "First Purchase!")
 	else:
 		notif.show_notification("Not enough coins!")
 		

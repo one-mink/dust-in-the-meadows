@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://naqhfn7euvut"]
+
+[ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="1_ur6gg"]
+[ext_resource type="Script" uid="uid://cyjb0sdov02rf" path="res://Script/game_settings_panel.gd" id="2_52pyj"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1129228824]
+process_mode = 3
+
+[node name="PauseContainer" type="PanelContainer" parent="." unique_id=1814353101]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -100.5
+offset_right = 197.5
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_ur6gg")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseContainer" unique_id=565996544]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseContainer/MarginContainer" unique_id=580311295]
+layout_mode = 2
+
+[node name="Paused" type="Label" parent="PauseContainer/MarginContainer/VBoxContainer" unique_id=1836043060]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="PauseContainer/MarginContainer/VBoxContainer" unique_id=1968666162]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="PauseContainer/MarginContainer/VBoxContainer" unique_id=719569564]
+layout_mode = 2
+text = "Quit"
+
+[node name="Resume" type="Button" parent="PauseContainer/MarginContainer/VBoxContainer" unique_id=790584286]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resume"
+
+[node name="GameSettingsPanel" type="PanelContainer" parent="." unique_id=458288100]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -99.0
+offset_right = 199.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_ur6gg")
+script = ExtResource("2_52pyj")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameSettingsPanel" unique_id=2061173602]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameSettingsPanel/MarginContainer" unique_id=987647181]
+layout_mode = 2
+
+[node name="GameBackButton" type="Button" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1291884708]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.8745098, 0.13333334, 0.08627451, 1)
+theme_override_font_sizes/font_size = 18
+text = "BACK"
+
+[node name="Label" type="Label" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=671625961]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "SETTINGS"
+
+[node name="Volume" type="Label" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=2063010672]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "Volume"
+
+[node name="GameHSlider" type="HSlider" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1373638863]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="FullScreen" type="Label" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=728235484]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "FullScreen"
+
+[node name="GameCheckBox" type="CheckBox" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1549166469]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1605924902]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "Dark Mode"
+
+[node name="GameCheckButton" type="CheckButton" parent="GameSettingsPanel/MarginContainer/VBoxContainer" unique_id=1974168651]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="GameSettingsPanel/MarginContainer/VBoxContainer/GameBackButton" to="GameSettingsPanel" method="_on_game_back_button_pressed"]
+[connection signal="value_changed" from="GameSettingsPanel/MarginContainer/VBoxContainer/GameHSlider" to="GameSettingsPanel" method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="GameSettingsPanel/MarginContainer/VBoxContainer/GameCheckBox" to="GameSettingsPanel" method="_on_check_box_toggled"]
+[connection signal="toggled" from="GameSettingsPanel/MarginContainer/VBoxContainer/GameCheckButton" to="GameSettingsPanel" method="_on_theme_toggle_toggled"]

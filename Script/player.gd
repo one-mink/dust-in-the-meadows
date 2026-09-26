@@ -4,6 +4,7 @@ class_name Player
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -550.0
+var has_key: bool = false
 
 signal item_collected(item)
 

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b5pp5eecnxvaw"]
+
+[ext_resource type="Script" uid="uid://47gjd7pxtyoi" path="res://Script/dialogue_ui.gd" id="1_72bn8"]
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=214731406]
+visible = false
+script = ExtResource("1_72bn8")
+
+[node name="DialogueBox" type="PanelContainer" parent="." unique_id=1251617081]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -211.0
+offset_top = -283.0
+offset_right = 262.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox" unique_id=1413048738]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/MarginContainer" unique_id=1143420729]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer" unique_id=739066384]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "huge"
+
+[node name="TextLabel" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer" unique_id=982376820]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
+text = "on a sunny morning hugo got out of his camper to go and find resources to provide for his family"
+autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="." unique_id=1562322505]
+offset_left = 790.0
+offset_top = 476.0
+offset_right = 837.0
+offset_bottom = 518.0
+text = "▶"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

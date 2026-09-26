@@ -174,12 +174,13 @@ radius = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnoby"]
 size = Vector2(7.5, 15)
 
-[node name="player" type="CharacterBody2D" unique_id=2083495719]
+[node name="player" type="CharacterBody2D" unique_id=2083495719 groups=["player"]]
 z_index = 100
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1665991903]
-position = Vector2(5, 0)
+position = Vector2(2.0000005, -1.5000002)
+scale = Vector2(1.3125, 1.34375)
 sprite_frames = SubResource("SpriteFrames_hnoby")
 animation = &"run"
 autoplay = "idle"
@@ -190,6 +191,10 @@ frame_progress = 0.8654464
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=687965450]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_ir14n")
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1097537540]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1704815300]
 position = Vector2(5, 5)

@@ -1,5 +1,5 @@
 extends Node
-const FLOWER_ITEM_NAME := "flower" 
+const FLOWER_ITEM_NAME := "white flower"
 
 func _ready():
 	print("main ready")

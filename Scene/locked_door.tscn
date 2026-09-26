@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dradsa64aiov5"]
+
+[ext_resource type="Texture2D" uid="uid://cx4jskr3qulx0" path="res://Key Assets/gold door.png" id="1_tseji"]
+[ext_resource type="Script" uid="uid://dbnjabj40c7pa" path="res://Script/locked_door.gd" id="1_yd844"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q28vp"]
+size = Vector2(21, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dy6ld"]
+radius = 29.017237
+
+[node name="LockedDoor" type="StaticBody2D" unique_id=1888552533]
+script = ExtResource("1_yd844")
+
+[node name="LDoor" type="Sprite2D" parent="." unique_id=141557195]
+unique_name_in_owner = true
+position = Vector2(-1.000001, 1.0000019)
+scale = Vector2(0.11421876, 0.09421875)
+texture = ExtResource("1_tseji")
+
+[node name="Doorstate" type="CollisionShape2D" parent="." unique_id=939540805]
+unique_name_in_owner = true
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_q28vp")
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=206709399]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractArea" unique_id=728048599]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_dy6ld")

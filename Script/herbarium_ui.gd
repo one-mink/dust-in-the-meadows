@@ -12,7 +12,13 @@ func discover_flower(flower_name: String, description: String) -> void:
 
 	discovered_flowers.append({"name": flower_name, "description": description})
 	_refresh_herbarium_list()
-
+	
+	var achievements = get_tree().current_scene.get_node("AchievementManager")
+	if discovered_flowers.size() == 1:
+		achievements.unlock("first_flower", "First Flower!")
+	elif discovered_flowers.size() == 10:
+		achievements.unlock("herbarium_10", "Herbarium: 10 Flowers!")
+		
 func _refresh_herbarium_list() -> void:
 	for child in %HerbariumList.get_children():
 		child.queue_free()
