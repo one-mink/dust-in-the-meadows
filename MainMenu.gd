@@ -5,7 +5,7 @@ func _ready():
 	%SettingPanel.visibility_changed.connect(_on_settings_visibility_changed)
 
 func _on_play_clicked():
-	get_tree().change_scene_to_file("res://Scene/main.tscn")
+	get_tree().change_scene_to_file("res://level/level_2.tscn")
 
 
 func _on_settings_pressed() -> void:

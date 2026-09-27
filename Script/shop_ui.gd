@@ -1,28 +1,27 @@
 extends CanvasLayer
-
-var coins: int = 0
-var shop_items: Array = [
-	{"name": "Blue Decoration", "price": 3, "icon": "res://assets/sprites/seed_asset_prototype.png"},
-	{"name": "Lantern", "price": 5, "icon": "res://assets/sprites/seed_asset_prototype.png"},
-	{"name": "Rug", "price": 8, "icon": "res://assets/sprites/seed_asset_prototype.png"}
-]
-
 @onready var CoinLabel: Label = %CoinLabel
 @onready var ShopPanel: PanelContainer = %ShopPanel
-@onready var ShopList: GridContainer =%ShopList
+@onready var ShopList: GridContainer = %ShopList
 
-func _ready() -> void:
+var coins: int = 0
+
+var shop_items: Array = [
+	{"name": "Speed Boost", "price": 5, "icon": "res://assets/sprites/seed_asset_prototype.png"},
+	{"name": "Extra Key", "price": 10, "icon": "res://assets/sprites/seed_asset_prototype.png"}
+]
+
+func _ready():
 	_update_coins_label()
 	_populate_shop_list()
 
-func add_coins(amount: int) -> void:
-	coins += amount
+func add_coin() -> void:
+	coins += 1
 	_update_coins_label()
-	
+
 func _update_coins_label() -> void:
 	if CoinLabel:
 		CoinLabel.text = "Coins: " + str(coins)
-	
+
 func _populate_shop_list() -> void:
 	# Clear existing items
 	for child in ShopList.get_children():
@@ -38,7 +37,7 @@ func _populate_shop_list() -> void:
 		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		if shop_item.has("icon") and shop_item["icon"] != "":
 			icon.texture = load(shop_item["icon"])
-		item_box.add_child(icon)
+			item_box.add_child(icon)
 		
 		var label = Label.new()
 		label.text = shop_item["name"] + "\n" + str(shop_item["price"]) + " coins"

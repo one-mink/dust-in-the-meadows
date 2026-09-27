@@ -42,8 +42,8 @@ func _try_unlock():
 			notif.show_notification("Door unlocked! Entering Level 2...")
 		
 		# 🚀 LOAD LEVEL 2 — change path if yours is different
-		get_tree().change_scene_to_file("res://level/level_2_1.tscn")
+		get_tree().change_scene_to_file("res://level/level_2_2.tscn")
 	else:
 		var notif = get_tree().current_scene.get_node_or_null("NotificationUI")
 		if notif:
-			notif.show_notification("Need a key — check the chest!")
+			notif.show_notification("Need a key")

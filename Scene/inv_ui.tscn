@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://nkome1qecchp"]
 
-[ext_resource type="Script" uid="uid://cgleuepnsj4se" path="res://inventory/Inv_ui.gd" id="1_3d5uf"]
+[ext_resource type="Script" uid="uid://cgleuepnsj4se" path="res://inventory/inv_ui.gd" id="1_3d5uf"]
 [ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_ynrc3"]
 [ext_resource type="PackedScene" uid="uid://b1ahlqm1md5r3" path="res://inventory/inv_slot_ui.tscn" id="2_3d5uf"]
+
 
 [node name="inv_ui" type="Control" unique_id=1085945026]
 layout_mode = 3
