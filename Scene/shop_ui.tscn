@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dwjel4jenhovs"]
 
 [ext_resource type="Script" uid="uid://bsuj6212smu3c" path="res://Script/shop_ui.gd" id="1_3oxqd"]
-[ext_resource type="StyleBox" uid="uid://e255ltkevjr3" path="res://assets/panel_style.tres" id="2_6vupn"]
 
 [node name="ShopUI" type="CanvasLayer" unique_id=1681652565]
 unique_name_in_owner = true
@@ -21,29 +20,24 @@ offset_right = 215.0
 offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_6vupn")
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopPanel" unique_id=1171543210]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel/MarginContainer" unique_id=1266874258]
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel/MarginContainer" unique_id=1120309996]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=1424041002]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0.02745098, 1)
-theme_override_font_sizes/font_size = 18
-text = "SHOP"
-
-[node name="CoinLabel" type="Label" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=451804473]
+[node name="CoinLabel" type="Label" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=1563435425]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Coins:0"
+text = "Coins: X"
 
-[node name="ShopList" type="VBoxContainer" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=257688583]
+[node name="ShopList" type="GridContainer" parent="ShopPanel/MarginContainer/VBoxContainer" unique_id=804135324]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
 
 [node name="ShopButton" type="Button" parent="." unique_id=847605594]
 custom_minimum_size = Vector2(48, 48)

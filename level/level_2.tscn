@@ -3,7 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://kltug1ow8x3l" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_suhml"]
 [ext_resource type="PackedScene" uid="uid://hn672ra3a3oh" path="res://Scene/player.tscn" id="2_xj6fv"]
 [ext_resource type="PackedScene" uid="uid://dradsa64aiov5" path="res://Scene/locked_door.tscn" id="3_dxks8"]
+[ext_resource type="PackedScene" uid="uid://bena181dxwfrs" path="res://Scene/tutorial_ui.tscn" id="5_ejyio"]
+[ext_resource type="Script" uid="uid://bgdfy2swsoims" path="res://inventory/items/inventory_item.gd" id="5_nngw5"]
 [ext_resource type="PackedScene" uid="uid://khgrag6413do" path="res://Scene/chest.tscn" id="5_xj6fv"]
+[ext_resource type="PackedScene" uid="uid://dwjel4jenhovs" path="res://Scene/shop_ui.tscn" id="6_nngw5"]
+[ext_resource type="PackedScene" uid="uid://ckvay7sil5w73" path="res://Scene/quest_ui.tscn" id="7_uivbl"]
+[ext_resource type="PackedScene" uid="uid://cspcyrq10h1eb" path="res://Scene/achievement_manager.tscn" id="8_35kkn"]
+[ext_resource type="PackedScene" uid="uid://nkome1qecchp" path="res://Scene/inv_ui.tscn" id="9_qhnra"]
+[ext_resource type="PackedScene" uid="uid://dh51jg2pppr53" path="res://Scene/notification_ui.tscn" id="10_mdx7b"]
+[ext_resource type="PackedScene" uid="uid://naqhfn7euvut" path="res://Scene/pause_menu.tscn" id="11_drhu7"]
+[ext_resource type="PackedScene" uid="uid://c57hgpspm5n0w" path="res://Scene/herbarium_ui.tscn" id="13_uivbl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xj6fv"]
 texture = ExtResource("2_suhml")
@@ -171,6 +180,14 @@ texture = ExtResource("2_suhml")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xj6fv")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uivbl"]
+load_path = "res://.godot/imported/gold key.png-3b1e392bb6fad000928ab985fa4da122.ctex"
+
+[sub_resource type="Resource" id="Resource_35kkn"]
+script = ExtResource("5_nngw5")
+name = "Key"
+texture = SubResource("CompressedTexture2D_uivbl")
+
 [node name="Level 2" type="Node2D" unique_id=1263906612]
 
 [node name="player" parent="." unique_id=2083495719 instance=ExtResource("2_xj6fv")]
@@ -188,3 +205,21 @@ position = Vector2(992, -113)
 
 [node name="Chest" parent="." unique_id=83123174 instance=ExtResource("5_xj6fv")]
 position = Vector2(845, 255)
+key_item = SubResource("Resource_35kkn")
+
+[node name="TutorialUI" parent="." unique_id=1700566724 instance=ExtResource("5_ejyio")]
+visible = false
+
+[node name="ShopUI" parent="." unique_id=1681652565 instance=ExtResource("6_nngw5")]
+
+[node name="QuestUI" parent="." unique_id=1796042345 instance=ExtResource("7_uivbl")]
+
+[node name="AchievementManager" parent="." unique_id=1329251974 instance=ExtResource("8_35kkn")]
+
+[node name="inv_ui" parent="." unique_id=1085945026 instance=ExtResource("9_qhnra")]
+
+[node name="NotificationUI" parent="." unique_id=1936451328 instance=ExtResource("10_mdx7b")]
+
+[node name="PauseMenu" parent="." unique_id=1129228824 instance=ExtResource("11_drhu7")]
+
+[node name="HerbariumUI" parent="." unique_id=1274322704 instance=ExtResource("13_uivbl")]

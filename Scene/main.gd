@@ -53,4 +53,4 @@ func _on_settings_pressed() -> void:
 	$PauseMenu/GameSettingsPanel.visible = true
 
 func _on_game_back_button_pressed() -> void:
-	$PauseMenu/PauseContainer.visible = true
+	$PauseMenu/PauseContainer.visible = true 
