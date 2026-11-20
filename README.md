@@ -22,6 +22,11 @@
 
 
 
+i hope you enjoy these few hours pass together lov u fellas and TAKE CARE see you one day !
+keep belive in you 
+
+
+
 
 * to jump/ladder you use "w" and "z" / the up arrow /space 
 * to move left/right you use  "q"/"d"  "a"/"d"  arrow left/right
